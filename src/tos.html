@@ -6,12 +6,13 @@
     <title>Lowkeycraft - Terms of Service</title>
     <link rel="icon" href="foz.png">
     <!-- Tailwind CSS CDN for styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
+  
      <meta name="og:card" content="summary_large_image">
     <meta name="og:title" content="Lowkeycraft - Terms of Service">
     <meta name="og:description" content="Official Lowkeycraft Minecraft Server Terms of Service - Content Copyright © 2025 Fozmu Studios">
     <meta name="og:url" content="https://lowkeycraft.net/logo.png">
     <meta content="#22fff" data-react-helmet="true" name="theme-color">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
         body {
@@ -21,14 +22,30 @@
         body, .bg-white, .border-red-500, .border-gray-300, .border-gray-200 {
             transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
         }
-        .dark .border-red-500 {
-            border-color: #ef4444; /* Tailwind red-500 */
-        }
     </style>
     <script>
-        // Add Tailwind config for dark mode to enable the `class` strategy
+        // Add Tailwind config with a custom color
         tailwind.config = {
             darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-green': {
+                            '50': '#f1fef7',
+                            '100': '#dcf7e6',
+                            '200': '#b4efcd',
+                            '300': '#83e6b2',
+                            '400': '#55d896',
+                            '500': '#2ae88a',
+                            '600': '#15d374',
+                            '700': '#08bb63',
+                            '800': '#03934f',
+                            '900': '#017942',
+                            '950': '#004c29',
+                        }
+                    }
+                }
+            }
         }
     </script>
 </head>
@@ -38,7 +55,7 @@
     <div class="max-w-4xl mx-auto my-8 bg-white dark:bg-gray-800 p-6 sm:p-12 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700">
 
         <!-- Header section with server name and a descriptive subtitle -->
-        <header class="text-center pb-8 mb-8 border-b-2 border-red-500 dark:border-red-400 relative">
+        <header class="text-center pb-8 mb-8 border-b-2 border-primary-green-500 dark:border-primary-green-400 relative">
             
             <!-- Light/Dark mode switch button -->
             <button id="theme-toggle" class="absolute top-0 right-0 p-2 text-gray-800 dark:text-gray-200 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-300">
@@ -53,7 +70,7 @@
             </button>
 
             <!-- Placeholder for Lowkeycraft Logo -->
-            <img src="logo.png" alt="Lowkeycraft Logo Placeholder" class="mx-auto my-4 max-w-20 max-h-20 rounded-2xl shadow-lg">
+            <img src="logo.png" alt="Lowkeycraft Logo Placeholder" class="mx-auto my-4 max-w-40 max-h-40 rounded-2xl shadow-lg">
 
             <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-gray-100 leading-tight mb-2">
                 Lowkeycraft Server Terms of Service Agreement
@@ -63,7 +80,7 @@
             </p>
 
             <!-- Placeholder for Fozmu Studios Logo -->
-            <img src="foz.png" alt="Fozmu Studios Logo Placeholder" class="mx-auto mt-4 max-h-20 max-w-20 rounded-lg shadow-md">
+            <img src="foz.png" alt="Fozmu Studios Logo Placeholder" class="mx-auto mt-4 max-w-40 max-h-40 rounded-2xl shadow-md">
         </header>
 
         <!-- Main content area, structured into logical sections -->
@@ -86,11 +103,11 @@
                         <h3 class="font-bold text-xl text-gray-700 dark:text-gray-300">1.2. Prohibited In-Game and Platform Behaviors</h3>
                         <p class="text-gray-600 dark:text-gray-400 mb-2">Engaging in any of the following activities is strictly prohibited and will result in disciplinary action, up to and including a permanent ban from all Lowkeycraft platforms:</p>
                         <ul class="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-400">
-                            <li><span class="font-semibold text-red-500 dark:text-red-400">Cheating & Unfair Advantages:</span> This includes, but is not limited to, the use of any unauthorized client modifications ("hacked clients"), macros, or scripts designed to automate actions, exploit glitches, or gain an unfair advantage over other players. Specific examples include Kill Aura, Aimbot, Speed Hacks, X-Ray, and any other modifications not explicitly approved by staff.</li>
-                            <li><span class="font-semibold text-red-500 dark:text-red-400">Griefing & Vandalism:</span> The intentional destruction, modification, or defacement of any player-owned property or public builds is strictly forbidden. This also includes stealing from chests, claiming land within another player's protected area, or maliciously manipulating server features to cause harm to others.</li>
-                            <li><span class="font-semibold text-red-500 dark:text-red-400">Harassment & Bullying:</span> Any form of persistent, unsolicited, or malicious communication directed at another player or group is prohibited. This includes, but is not limited to, verbal abuse, threats of real-world harm, derogatory remarks based on race, gender, religion, sexual orientation, or any other protected characteristic.</li>
-                            <li><span class="font-semibold text-red-500 dark:text-red-400">Spamming & Chat Misuse:</span> Do not spam the chat with repetitive messages, irrelevant content, or excessive use of caps lock. Do not use the chat to advertise any external websites, servers, or services without the express written permission of a server administrator.</li>
-                            <li><span class="font-semibold text-red-500 dark:text-red-400">Impersonation & False Information:</span> Impersonating a staff member or another player, or disseminating false information that could harm the community or individuals, is strictly prohibited.</li>
+                            <li><span class="font-semibold text-primary-green-500 dark:text-primary-green-400">Cheating & Unfair Advantages:</span> This includes, but is not limited to, the use of any unauthorized client modifications ("hacked clients"), macros, or scripts designed to automate actions, exploit glitches, or gain an unfair advantage over other players. Specific examples include Kill Aura, Aimbot, Speed Hacks, X-Ray, and any other modifications not explicitly approved by staff.</li>
+                            <li><span class="font-semibold text-primary-green-500 dark:text-primary-green-400">Griefing & Vandalism:</span> The intentional destruction, modification, or defacement of any player-owned property or public builds is strictly forbidden. This also includes stealing from chests, claiming land within another player's protected area, or maliciously manipulating server features to cause harm to others.</li>
+                            <li><span class="font-semibold text-primary-green-500 dark:text-primary-green-400">Harassment & Bullying:</span> Any form of persistent, unsolicited, or malicious communication directed at another player or group is prohibited. This includes, but is not limited to, verbal abuse, threats of real-world harm, derogatory remarks based on race, gender, religion, sexual orientation, or any other protected characteristic.</li>
+                            <li><span class="font-semibold text-primary-green-500 dark:text-primary-green-400">Spamming & Chat Misuse:</span> Do not spam the chat with repetitive messages, irrelevant content, or excessive use of caps lock. Do not use the chat to advertise any external websites, servers, or services without the express written permission of a server administrator.</li>
+                            <li><span class="font-semibold text-primary-green-500 dark:text-primary-green-400">Impersonation & False Information:</span> Impersonating a staff member or another player, or disseminating false information that could harm the community or individuals, is strictly prohibited.</li>
                         </ul>
                     </div>
                 </div>
@@ -147,10 +164,10 @@
                         <h3 class="font-bold text-xl text-gray-700 dark:text-gray-300">4.1. Disciplinary Actions and Tiered System</h3>
                         <p class="text-gray-600 dark:text-gray-400 mb-2">Violations of these terms may result in a range of disciplinary actions, determined at the sole discretion of the staff. The severity of the action will increase with the frequency and severity of the offense. These actions include:</p>
                         <ul class="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-400">
-                            <li><span class="font-semibold text-red-500 dark:text-red-400">Level 1:</span> Verbal Warnings for minor infractions.</li>
-                            <li><span class="font-semibold text-red-500 dark:text-red-400">Level 2:</span> Formal Warnings and Temporary Chat Mutes (e.g., 1-24 hours).</li>
-                            <li><span class="font-semibold text-red-500 dark:text-red-400">Level 3:</span> Temporary Bans (e.g., 24 hours to 1 week) for more serious or repeated offenses.</li>
-                            <li><span class="font-semibold text-red-500 dark:text-red-400">Level 4:</span> Permanent Bans, which are irreversible and typically reserved for severe or repeated offenses, such as hacking, severe harassment, or ban evasion.</li>
+                            <li><span class="font-semibold text-primary-green-500 dark:text-primary-green-400">Level 1:</span> Verbal Warnings for minor infractions.</li>
+                            <li><span class="font-semibold text-primary-green-500 dark:text-primary-green-400">Level 2:</span> Formal Warnings and Temporary Chat Mutes (e.g., 1-24 hours).</li>
+                            <li><span class="font-semibold text-primary-green-500 dark:text-primary-green-400">Level 3:</span> Temporary Bans (e.g., 24 hours to 1 week) for more serious or repeated offenses.</li>
+                            <li><span class="font-semibold text-primary-green-500 dark:text-primary-green-400">Level 4:</span> Permanent Bans, which are irreversible and typically reserved for severe or repeated offenses, such as hacking, severe harassment, or ban evasion.</li>
                         </ul>
                     </div>
                     <div>
