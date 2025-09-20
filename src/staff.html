@@ -483,67 +483,9 @@
 </head>
 
 <body>
-    <!-- Password Modal -->
-    <div id="passwordModal" style="
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(15, 23, 42, 0.95);
-        backdrop-filter: blur(10px);
-        display: none;
-        align-items: center;
-        justify-content: center;
-        z-index: 10000;
-    ">
-        <div style="
-            background: rgba(30, 41, 59, 0.95);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            border-radius: 1rem;
-            padding: 3rem;
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        ">
-            <div style="font-size: 3rem; margin-bottom: 1rem;">🔒</div>
-            <h2 style="color: #f1f5f9; font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">Staff Access Required</h2>
-            <p style="color: #cbd5e1; margin-bottom: 2rem;">This page is restricted to authorized staff members only.</p>
-            <input type="password" id="staffPassword" placeholder="Enter staff password" style="
-                width: 100%;
-                padding: 0.75rem;
-                border: 1px solid rgba(34, 197, 94, 0.5);
-                border-radius: 0.5rem;
-                background: white;
-                color: #1f2937;
-                font-size: 1rem;
-                margin-bottom: 1rem;
-                outline: none;
-                box-sizing: border-box;
-                display: block;
-            ">
-            <button onclick="checkPassword()" style="
-                width: 100%;
-                padding: 0.75rem 1.5rem;
-                background: #22c55e;
-                color: white;
-                border: none;
-                border-radius: 0.5rem;
-                font-weight: 600;
-                font-size: 1rem;
-                cursor: pointer;
-                transition: all 0.3s ease;
-            " onmouseover="this.style.background='#16a34a'" onmouseout="this.style.background='#22c55e'">Access Staff Area</button>
-            <div id="passwordError" style="color: #f87171; margin-top: 1rem; display: none;">Incorrect password. Please try again.</div>
-        </div>
-    </div>
+    <div class="progress-bar" id="progressBar"></div>
 
-    <!-- Main Content -->
-    <div id="mainContent">
-        <div class="progress-bar" id="progressBar"></div>
-
-        <header class="header-section">
+    <header class="header-section">
         <div class="container">
             <div class="logo-container">
                 <img src="./logo.png" alt="Lowkeycraft Logo" class="logo mx-auto">
@@ -882,23 +824,100 @@
             </div>
         </div>
     </footer>
-    </div> <!-- End mainContent -->
 
     <script>
         const STAFF_PASSWORD = 'MyLowkeyWorld!';
+
+        function showPasswordModal() {
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(15, 23, 42, 0.95);
+                backdrop-filter: blur(10px);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 10000;
+            `;
+
+            const modalContent = document.createElement('div');
+            modalContent.style.cssText = `
+                background: rgba(30, 41, 59, 0.95);
+                border: 1px solid rgba(34, 197, 94, 0.3);
+                border-radius: 1rem;
+                padding: 3rem;
+                text-align: center;
+                max-width: 400px;
+                width: 90%;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            `;
+
+            modalContent.innerHTML = `
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🔒</div>
+                <h2 style="color: #f1f5f9; font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">Staff Access Required</h2>
+                <p style="color: #cbd5e1; margin-bottom: 2rem;">This page is restricted to authorized staff members only.</p>
+                <input type="password" id="staffPassword" placeholder="Enter staff password" style="
+                    width: 100%;
+                    padding: 0.75rem;
+                    border: 1px solid rgba(34, 197, 94, 0.3);
+                    border-radius: 0.5rem;
+                    background: rgba(15, 23, 42, 0.6);
+                    color: #f1f5f9;
+                    font-size: 1rem;
+                    margin-bottom: 1rem;
+                    outline: none;
+                ">
+                <button onclick="checkPassword()" style="
+                    width: 100%;
+                    padding: 0.75rem 1.5rem;
+                    background: #22c55e;
+                    color: white;
+                    border: none;
+                    border-radius: 0.5rem;
+                    font-weight: 600;
+                    font-size: 1rem;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                " onmouseover="this.style.background='#16a34a'" onmouseout="this.style.background='#22c55e'">Access Staff Area</button>
+                <div id="passwordError" style="color: #f87171; margin-top: 1rem; display: none;">Incorrect password. Please try again.</div>
+            `;
+
+            modal.appendChild(modalContent);
+            document.body.appendChild(modal);
+
+            // Focus on password input
+            setTimeout(() => {
+                document.getElementById('staffPassword').focus();
+            }, 100);
+
+            // Allow Enter key to submit
+            document.getElementById('staffPassword').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    checkPassword();
+                }
+            });
+
+            return modal;
+        }
 
         function checkPassword() {
             const input = document.getElementById('staffPassword');
             const error = document.getElementById('passwordError');
 
-            if (input && input.value === STAFF_PASSWORD) {
+            if (input.value === STAFF_PASSWORD) {
                 // Store authentication in session
                 sessionStorage.setItem('staffAuthenticated', 'true');
-                // Hide modal
-                document.getElementById('passwordModal').style.display = 'none';
+                // Remove modal
+                const modal = document.querySelector('div[style*="position: fixed"]').parentElement;
+                modal.remove();
                 // Show content
-                document.getElementById('mainContent').style.display = 'block';
-            } else if (input) {
+                document.body.style.display = 'block';
+                document.body.style.opacity = '1';
+            } else {
                 error.style.display = 'block';
                 input.value = '';
                 input.focus();
@@ -918,20 +937,10 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Check if user is authenticated
             if (sessionStorage.getItem('staffAuthenticated') !== 'true') {
+                // Hide content initially
+                document.body.style.opacity = '0';
                 // Show password modal
-                document.getElementById('passwordModal').style.display = 'flex';
-                document.getElementById('mainContent').style.display = 'none';
-                // Focus on password input
-                setTimeout(() => {
-                    const passwordInput = document.getElementById('staffPassword');
-                    if (passwordInput) {
-                        passwordInput.focus();
-                    }
-                }, 100);
-            } else {
-                // Hide modal and show content
-                document.getElementById('passwordModal').style.display = 'none';
-                document.getElementById('mainContent').style.display = 'block';
+                showPasswordModal();
             }
 
             window.addEventListener('scroll', updateProgressBar);
@@ -949,16 +958,6 @@
                     }
                 });
             });
-
-            // Allow Enter key to submit password
-            const passwordInput = document.getElementById('staffPassword');
-            if (passwordInput) {
-                passwordInput.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') {
-                        checkPassword();
-                    }
-                });
-            }
         });
 
         // Add shake animation styles
