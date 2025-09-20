@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lowkeycraft - Privacy Policy</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+
+    <meta name="og:card" content="summary_large_image">
+    <meta name="og:title" content="Lowkeycraft - Privacy Policy">
+    <meta name="og:description" content="Official Lowkeycraft Minecraft Server Privacy Policy - Your privacy matters to us">
+    <meta name="og:url" content="https://lowkeycraft.net/logo.png">
+    <meta content="#22c55e" data-react-helmet="true" name="theme-color">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+        :root {
+            --primary-green: #22c55e;
+            --dark-green: #16a34a;
+            --light-green: #4ade80;
+            --accent-green: #dcfce7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            background: #0f172a;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f172a;
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(34, 197, 94, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(34, 197, 94, 0.03) 0%, transparent 50%),
+                linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            min-height: 100vh;
+            line-height: 1.6;
+            color: #e2e8f0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-section {
+            background: linear-gradient(135deg, #064e3b 0%, #059669 50%, #047857 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(34, 197, 94, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(34, 197, 94, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .logo-container {
+            margin-bottom: 2rem;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            object-fit: contain;
+            background: white;
+            padding: 0.5rem;
+        }
+
+        .main-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            font-weight: 600;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .intro-text {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+
+        .company-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 0.75rem;
+            padding: 1rem 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .company-logo {
+            width: 32px;
+            height: 32px;
+            border-radius: 0.5rem;
+            object-fit: contain;
+            background: white;
+            padding: 0.25rem;
+        }
+
+        .content-section {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .content-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 30%, rgba(34, 197, 94, 0.03) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(34, 197, 94, 0.02) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .section-card {
+            background: rgba(30, 41, 59, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            border-radius: 1rem;
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary-green);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.05), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .section-card:hover::before {
+            left: 100%;
+        }
+
+        .section-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            border-color: rgba(34, 197, 94, 0.4);
+            box-shadow:
+                0 20px 40px rgba(0, 0, 0, 0.4),
+                0 0 20px rgba(34, 197, 94, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .section-number {
+            position: absolute;
+            top: -12px;
+            right: 2rem;
+            background: var(--primary-green);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 8px rgba(34, 197, 94, 0.3);
+        }
+
+        .section-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .info-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .info-card:hover {
+            background: rgba(15, 23, 42, 0.8);
+            border-color: rgba(34, 197, 94, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 15px rgba(34, 197, 94, 0.1);
+        }
+
+        .info-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-card p {
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        .button-primary {
+            display: inline-block;
+            background: var(--primary-green);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .button-primary:hover {
+            background: var(--dark-green);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+        }
+
+        .link-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            display: block;
+            backdrop-filter: blur(10px);
+        }
+
+        .link-card:hover {
+            border-color: rgba(34, 197, 94, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 15px rgba(34, 197, 94, 0.1);
+            background: rgba(15, 23, 42, 0.8);
+        }
+
+        .link-title {
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .link-desc {
+            color: #cbd5e1;
+            font-size: 0.875rem;
+        }
+
+        .footer-section {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 4rem 0 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(34, 197, 94, 0.2);
+        }
+
+        .footer-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: var(--light-green);
+        }
+
+        .footer-text {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .footer-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .footer-info {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            opacity: 0.7;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-green), var(--light-green));
+            z-index: 1000;
+            transition: width 0.3s ease;
+        }
+
+        .code-inline {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 0.25rem;
+            padding: 0.25rem 0.5rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            color: var(--primary-green);
+        }
+
+        .highlight-green {
+            color: var(--primary-green);
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+
+            .section-card {
+                padding: 1.5rem;
+            }
+
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+
+    <header class="header-section">
+        <div class="container">
+            <div class="logo-container">
+                <img src="./logo.png" alt="Lowkeycraft Logo" class="logo mx-auto">
+            </div>
+
+            <h1 class="main-title">Lowkeycraft</h1>
+            <p class="subtitle">Privacy Policy</p>
+
+            <div class="intro-text">
+                <p>We are committed to <strong class="highlight-green">protecting your privacy</strong> and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, and safeguard your data when you use our Minecraft server and related services.</p>
+            </div>
+
+            <div class="company-badge">
+                <img src="./foz.png" alt="Fozmu Studios Logo" class="company-logo">
+                <span class="font-semibold">Powered by Fozmu Studios</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="content-section">
+        <div class="container">
+
+            <section class="section-card">
+                <div class="section-number">01</div>
+                <h2 class="section-title">
+                    <span>📊</span> Information We Collect
+                </h2>
+
+                <p class="text-lg mb-6 text-gray-200">
+                    Last updated: <span class="code-inline">January 2025</span>
+                </p>
+
+                <div class="grid-2">
+                    <div class="info-card">
+                        <h3><span>👤</span> Account Information</h3>
+                        <p>Minecraft username, UUID, and basic profile data required for server authentication and gameplay functionality.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><span>🎮</span> Gameplay Data</h3>
+                        <p>In-game statistics, achievements, progress tracking, and server interactions to enhance your gaming experience.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><span>💬</span> Communication Data</h3>
+                        <p>Chat messages, Discord interactions, and community communications for moderation and support purposes.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><span>🔧</span> Technical Data</h3>
+                        <p>IP addresses, device information, connection logs, and performance metrics for security and optimization.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-card">
+                <div class="section-number">02</div>
+                <h2 class="section-title">
+                    <span>🎯</span> How We Use Your Information
+                </h2>
+
+                <div class="grid-3">
+                    <div class="info-card">
+                        <h3><span>🔧</span> Service Provision</h3>
+                        <p>Provide and maintain our Minecraft server services, ensuring smooth gameplay and community features.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><span>🛡️</span> Security & Safety</h3>
+                        <p>Ensure server security, prevent cheating, abuse, and maintain a safe gaming environment for all players.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><span>📈</span> Improvement</h3>
+                        <p>Improve gameplay experience, server performance, and develop new features based on usage patterns.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><span>📢</span> Communication</h3>
+                        <p>Communicate important updates, announcements, and provide customer support when needed.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><span>⚖️</span> Legal Compliance</h3>
+                        <p>Comply with legal obligations and enforce our Terms of Service to maintain community standards.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-card">
+                <div class="section-number">03</div>
+                <h2 class="section-title">
+                    <span>🔒</span> Data Security & Protection
+                </h2>
+
+                <p class="text-lg mb-6 text-gray-200">
+                    Security is a key priority for <span class="code-inline">Lowkeycraft</span>. We implement comprehensive security measures to protect your information.
+                </p>
+
+                <div class="grid-2">
+                    <div class="info-card">
+                        <h3><span>🛡️</span> Security Measures</h3>
+                        <p>Industry-standard encryption, secure data transmission, and regular security audits to protect your personal information from unauthorized access.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><span>🔄</span> Continuous Monitoring</h3>
+                        <p>24/7 system monitoring, regular security updates, and proactive threat detection to maintain the highest level of data protection.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><span>🤝</span> Trusted Partners</h3>
+                        <p>We work exclusively with trusted third-party providers who meet our strict security standards and data protection requirements.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><span>📋</span> Compliance Standards</h3>
+                        <p>Full compliance with applicable data protection laws and regulations, including GDPR and other privacy frameworks.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-card">
+                <div class="section-number">04</div>
+                <h2 class="section-title">
+                    <span>🔗</span> Third-Party Services & Integrations
+                </h2>
+
+                <div class="grid-2">
+                    <div class="info-card">
+                        <h3><span>💬</span> Discord Integration</h3>
+                        <p class="mb-4">When using our Discord server, you agree to follow Discord's policies and our community standards.</p>
+                        <div class="flex gap-2 flex-wrap">
+                            <a href="https://discord.com/guidelines" target="_blank" class="button-primary text-sm">Guidelines</a>
+                            <a href="https://discord.com/terms" target="_blank" class="button-primary text-sm">Terms</a>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><span>🎮</span> Minecraft Services</h3>
+                        <p class="mb-4">Our server integrates with Mojang's authentication services and follows their privacy standards.</p>
+                        <a href="https://www.minecraft.net/privacy-policy" target="_blank" class="button-primary text-sm">Mojang Privacy</a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-card">
+                <div class="section-number">05</div>
+                <h2 class="section-title">
+                    <span>📅</span> Data Retention & Management
+                </h2>
+
+                <div class="grid-3">
+                    <div class="info-card">
+                        <h3><span>⏰</span> Retention Period</h3>
+                        <p>We retain your personal information only for as long as necessary to provide our services and comply with legal obligations.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><span>💤</span> Inactive Accounts</h3>
+                        <p>Accounts inactive for extended periods may have data archived or deleted, with appropriate notice provided beforehand.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><span>🗑️</span> Data Deletion</h3>
+                        <p>Upon request or account closure, we securely delete your personal data according to our retention policies.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-card">
+                <div class="section-number">06</div>
+                <h2 class="section-title">
+                    <span>👥</span> Your Privacy Rights
+                </h2>
+
+                <p class="text-lg mb-6 text-gray-200">
+                    You have comprehensive rights regarding your personal data under applicable privacy laws.
+                </p>
+
+                <div class="grid-2">
+                    <div class="info-card">
+                        <h3><span>📋</span> Access & Portability</h3>
+                        <p>Request access to your personal data and receive a copy in a commonly used, machine-readable format.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><span>✏️</span> Correction & Updates</h3>
+                        <p>Request correction of inaccurate information and updates to your personal data records.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><span>🗑️</span> Deletion Rights</h3>
+                        <p>Request deletion of your account and associated data under applicable "right to be forgotten" laws.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><span>🔕</span> Communication Control</h3>
+                        <p>Opt-out of non-essential communications while maintaining essential service notifications.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><span>⚖️</span> Legal Complaints</h3>
+                        <p>File complaints with relevant data protection authorities if you believe your rights have been violated.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><span>⚙️</span> Processing Objection</h3>
+                        <p>Object to certain types of data processing based on legitimate interests or direct marketing.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-card">
+                <div class="section-number">07</div>
+                <h2 class="section-title">
+                    <span>📞</span> Contact & Support
+                </h2>
+
+                <p class="text-lg mb-6 text-gray-200">
+                    If you have any questions about this Privacy Policy or wish to exercise your privacy rights, please contact us through any of these channels:
+                </p>
+
+                <div class="grid-2">
+                    <div class="info-card">
+                        <h3><span>💬</span> Discord Community</h3>
+                        <p class="mb-4">Join our Discord server for real-time support and community interaction.</p>
+                        <a href="discord.html" class="button-primary">Join Discord</a>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><span>📧</span> Email Support</h3>
+                        <p class="mb-4">Contact our privacy team directly for data protection inquiries and rights requests.</p>
+                        <a href="mailto:support@fozmu.studio" class="button-primary">Email Us</a>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><span>⚡</span> Quick Response</h3>
+                        <p>We typically respond to privacy inquiries within <span class="highlight-green">48 hours</span> during business days.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><span>🔒</span> Secure Communication</h3>
+                        <p>All privacy-related communications are handled with the highest level of confidentiality and security.</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="footer-section">
+        <div class="container">
+            <div class="text-6xl mb-6">🔒</div>
+            <h2 class="footer-title">Privacy Commitment</h2>
+            <p class="footer-text">
+                Your privacy is our priority. We are committed to <strong class="highlight-green">transparent data practices</strong>
+                and protecting your personal information while providing an exceptional gaming experience.
+            </p>
+
+            <div class="footer-buttons">
+                <a href="tos.html" class="button-primary">📋 Terms of Service</a>
+                <a href="discord.html" class="button-primary">💬 Discord Community</a>
+                <a href="mailto:support@fozmu.studio" class="button-primary">📧 Privacy Support</a>
+            </div>
+
+            <div class="footer-info">
+                <p>© 2025 <span class="highlight-green">Fozmu Studios</span> • All Rights Reserved • <span class="code-inline">Lowkeycraft</span> Minecraft Server</p>
+                <p class="text-sm mt-2 opacity-60">Privacy Policy last updated: January 2025 • GDPR Compliant</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function updateProgressBar() {
+            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            window.addEventListener('scroll', updateProgressBar);
+
+            // Smooth scrolling for any anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
