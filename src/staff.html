@@ -885,28 +885,55 @@
     </div> <!-- End mainContent -->
 
     <script>
-        const STAFF_PASSWORD = 'MyLowkeyWorld!';
-
-        function checkPassword() {
+        async function checkPassword() {
             const input = document.getElementById('staffPassword');
             const error = document.getElementById('passwordError');
+            const button = document.querySelector('button[onclick="checkPassword()"]');
 
-            if (input && input.value === STAFF_PASSWORD) {
-                // Store authentication in session
-                sessionStorage.setItem('staffAuthenticated', 'true');
-                // Hide modal
-                document.getElementById('passwordModal').style.display = 'none';
-                // Show content
-                document.getElementById('mainContent').style.display = 'block';
-            } else if (input) {
+            if (!input) return;
+
+            // Disable button and show loading state
+            button.disabled = true;
+            button.textContent = 'Verifying...';
+
+            try {
+                const response = await fetch('/api/verify-password', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        password: input.value
+                    })
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    // Store authentication in session
+                    sessionStorage.setItem('staffAuthenticated', 'true');
+                    // Hide modal
+                    document.getElementById('passwordModal').style.display = 'none';
+                    // Show content
+                    document.getElementById('mainContent').style.display = 'block';
+                } else {
+                    error.style.display = 'block';
+                    input.value = '';
+                    input.focus();
+                    // Add shake animation
+                    input.style.animation = 'shake 0.5s ease-in-out';
+                    setTimeout(() => {
+                        input.style.animation = '';
+                    }, 500);
+                }
+            } catch (err) {
+                console.error('Authentication error:', err);
+                error.textContent = 'Connection error. Please try again.';
                 error.style.display = 'block';
-                input.value = '';
-                input.focus();
-                // Add shake animation
-                input.style.animation = 'shake 0.5s ease-in-out';
-                setTimeout(() => {
-                    input.style.animation = '';
-                }, 500);
+            } finally {
+                // Re-enable button
+                button.disabled = false;
+                button.textContent = 'Access Staff Area';
             }
         }
 
