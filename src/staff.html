@@ -905,7 +905,6 @@
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    credentials: 'include',
                     body: JSON.stringify({
                         password: input.value
                     })
@@ -914,6 +913,8 @@
                 const result = await response.json();
 
                 if (result.success) {
+                    // Store authentication in session
+                    sessionStorage.setItem('staffAuthenticated', 'true');
                     // Hide modal
                     document.getElementById('passwordModal').style.display = 'none';
                     // Show content
@@ -944,35 +945,23 @@
             document.getElementById('progressBar').style.width = scrolled + '%';
         }
 
-        document.addEventListener('DOMContentLoaded', async function() {
-            // Check authentication status with server
-            try {
-                const response = await fetch('/api/check-auth', {
-                    credentials: 'include'
-                });
-                const result = await response.json();
-
-                if (result.authenticated) {
-                    // Hide modal and show content
-                    document.getElementById('passwordModal').style.display = 'none';
-                    document.getElementById('mainContent').style.display = 'block';
-                } else {
-                    // Show password modal
-                    document.getElementById('passwordModal').style.display = 'flex';
-                    document.getElementById('mainContent').style.display = 'none';
-                    // Focus on password input
-                    setTimeout(() => {
-                        const passwordInput = document.getElementById('staffPassword');
-                        if (passwordInput) {
-                            passwordInput.focus();
-                        }
-                    }, 100);
-                }
-            } catch (err) {
-                console.error('Auth check error:', err);
-                // Show password modal on error
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if user is authenticated
+            if (sessionStorage.getItem('staffAuthenticated') !== 'true') {
+                // Show password modal
                 document.getElementById('passwordModal').style.display = 'flex';
                 document.getElementById('mainContent').style.display = 'none';
+                // Focus on password input
+                setTimeout(() => {
+                    const passwordInput = document.getElementById('staffPassword');
+                    if (passwordInput) {
+                        passwordInput.focus();
+                    }
+                }, 100);
+            } else {
+                // Hide modal and show content
+                document.getElementById('passwordModal').style.display = 'none';
+                document.getElementById('mainContent').style.display = 'block';
             }
 
             window.addEventListener('scroll', updateProgressBar);
