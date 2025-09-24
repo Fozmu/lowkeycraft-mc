@@ -3,837 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lowkeycraft - Terms of Service</title>
-    <link rel="icon" href="foz.png">
-    
-    <meta name="og:card" content="summary_large_image">
-    <meta name="og:title" content="Lowkeycraft - Terms of Service">
-    <meta name="og:description" content="Official Lowkeycraft Minecraft Server Terms of Service - Content Copyright © 2025 Fozmu Studios">
-    <meta name="og:url" content="https://lowkeycraft.net/logo.png">
-    <meta content="#22c55e" data-react-helmet="true" name="theme-color">
+    <title>Terms of Service - Lowkeycraft</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
     <meta name="google-site-verification" content="16MaYtHjuvQX2w8Hocvgembth-ta3El1KVCbawKO13E" />
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-        
-        :root {
-            --primary-green: #22c55e;
-            --dark-green: #16a34a;
-            --light-green: #4ade80;
-            --accent-green: #dcfce7;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            background: #0f172a;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #0f172a;
-            background-image: 
-                radial-gradient(circle at 20% 30%, rgba(34, 197, 94, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(34, 197, 94, 0.03) 0%, transparent 50%),
-                linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-            min-height: 100vh;
-            line-height: 1.6;
-            color: #e2e8f0;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .header-section {
-            background: linear-gradient(135deg, #064e3b 0%, #059669 50%, #047857 100%);
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .header-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 20%, rgba(34, 197, 94, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 80%, rgba(34, 197, 94, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-        }
-        
-        .logo-container {
-            margin-bottom: 2rem;
-        }
-        
-        .logo {
-            width: 120px;
-            height: 120px;
-            border-radius: 1rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            object-fit: contain;
-            background: white;
-            padding: 0.5rem;
-        }
-        
-        .main-title {
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        
-        .subtitle {
-            font-size: 1.5rem;
-            font-weight: 600;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-        }
-        
-        .intro-text {
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            font-size: 1.1rem;
-            opacity: 0.95;
-            line-height: 1.7;
-        }
-        
-        .company-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            border-radius: 0.75rem;
-            padding: 1rem 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        .company-logo {
-            width: 32px;
-            height: 32px;
-            border-radius: 0.5rem;
-            object-fit: contain;
-            background: white;
-            padding: 0.25rem;
-        }
-        
-        .content-section {
-            padding: 5rem 0;
-            position: relative;
-        }
-        
-        .content-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 30%, rgba(34, 197, 94, 0.03) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 70%, rgba(34, 197, 94, 0.02) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 0;
-        }
-        
-        .section-card {
-            background: rgba(30, 41, 59, 0.95);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(34, 197, 94, 0.2);
-            border-radius: 1rem;
-            box-shadow: 
-                0 8px 32px rgba(0, 0, 0, 0.4),
-                inset 0 1px 0 rgba(255, 255, 255, 0.05);
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            border-left: 4px solid var(--primary-green);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .section-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.05), transparent);
-            transition: left 0.8s ease;
-        }
-        
-        .section-card:hover::before {
-            left: 100%;
-        }
-        
-        .section-card:hover {
-            transform: translateY(-8px) scale(1.01);
-            border-color: rgba(34, 197, 94, 0.4);
-            box-shadow: 
-                0 20px 40px rgba(0, 0, 0, 0.4),
-                0 0 20px rgba(34, 197, 94, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        }
-        
-        .section-number {
-            position: absolute;
-            top: -12px;
-            right: 2rem;
-            background: var(--primary-green);
-            color: white;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 0.9rem;
-            box-shadow: 0 2px 8px rgba(34, 197, 94, 0.3);
-        }
-        
-        .section-title {
-            font-size: 1.875rem;
-            font-weight: 700;
-            color: #f1f5f9;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        
-        .info-card {
-            background: rgba(15, 23, 42, 0.6);
-            border: 1px solid rgba(34, 197, 94, 0.2);
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-        
-        .info-card:hover {
-            background: rgba(15, 23, 42, 0.8);
-            border-color: rgba(34, 197, 94, 0.4);
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 15px rgba(34, 197, 94, 0.1);
-        }
-        
-        .info-card h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #f1f5f9;
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .info-card p {
-            color: #cbd5e1;
-            line-height: 1.6;
-        }
-        
-        .warning-card {
-            background: linear-gradient(135deg, rgba(127, 29, 29, 0.2) 0%, rgba(153, 27, 27, 0.1) 100%);
-            border: 1px solid rgba(248, 113, 113, 0.3);
-            border-radius: 0.75rem;
-            padding: 2rem;
-            margin: 2rem 0;
-            backdrop-filter: blur(10px);
-        }
-        
-        .warning-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #f87171;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        
-        .violation-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        
-        .violation-item {
-            background: rgba(15, 23, 42, 0.8);
-            border-radius: 0.5rem;
-            padding: 1rem;
-            border-left: 3px solid #ef4444;
-            border: 1px solid rgba(239, 68, 68, 0.2);
-        }
-        
-        .violation-item strong {
-            color: var(--primary-green);
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-        
-        .violation-item p {
-            color: #cbd5e1;
-        }
-        
-        .level-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-        
-        .level-card {
-            text-align: center;
-            padding: 1.5rem;
-            border-radius: 0.75rem;
-            border: 2px solid;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-        
-        .level-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        }
-        
-        .level-1 {
-            background: rgba(34, 197, 94, 0.1);
-            border-color: rgba(34, 197, 94, 0.3);
-            color: #4ade80;
-        }
-        
-        .level-2 {
-            background: rgba(251, 191, 36, 0.1);
-            border-color: rgba(251, 191, 36, 0.3);
-            color: #fbbf24;
-        }
-        
-        .level-3 {
-            background: rgba(249, 115, 22, 0.1);
-            border-color: rgba(249, 115, 22, 0.3);
-            color: #fb923c;
-        }
-        
-        .level-4 {
-            background: rgba(239, 68, 68, 0.1);
-            border-color: rgba(239, 68, 68, 0.3);
-            color: #f87171;
-        }
-        
-        .button-primary {
-            display: inline-block;
-            background: var(--primary-green);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .button-primary:hover {
-            background: var(--dark-green);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
-        }
-        
-        .link-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-        
-        .link-card {
-            background: rgba(15, 23, 42, 0.6);
-            border: 1px solid rgba(34, 197, 94, 0.2);
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s ease;
-            display: block;
-            backdrop-filter: blur(10px);
-        }
-        
-        .link-card:hover {
-            border-color: rgba(34, 197, 94, 0.4);
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 15px rgba(34, 197, 94, 0.1);
-            background: rgba(15, 23, 42, 0.8);
-        }
-        
-        .link-title {
-            font-weight: 600;
-            color: #f1f5f9;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .link-desc {
-            color: #cbd5e1;
-            font-size: 0.875rem;
-        }
-        
-        .footer-section {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: white;
-            padding: 4rem 0 2rem;
-            text-align: center;
-            border-top: 1px solid rgba(34, 197, 94, 0.2);
-        }
-        
-        .footer-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            color: var(--light-green);
-        }
-        
-        .footer-text {
-            font-size: 1.25rem;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            opacity: 0.9;
-        }
-        
-        .footer-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-        
-        .footer-info {
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid #374151;
-            opacity: 0.7;
-        }
-        
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-green), var(--light-green));
-            z-index: 1000;
-            transition: width 0.3s ease;
-        }
-        
-        .code-inline {
-            background: rgba(15, 23, 42, 0.8);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            border-radius: 0.25rem;
-            padding: 0.25rem 0.5rem;
-            font-family: 'Courier New', monospace;
-            font-size: 0.875rem;
-            color: var(--primary-green);
-        }
-        
-        .highlight-green {
-            color: var(--primary-green);
-            font-weight: 600;
-        }
-        
-        @media (max-width: 768px) {
-            .main-title {
-                font-size: 2.5rem;
-            }
-            
-            .section-card {
-                padding: 1.5rem;
-            }
-            
-            .grid-2, .grid-3 {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
+
 <body>
-    <div class="progress-bar" id="progressBar"></div>
-    
-    <header class="header-section">
+    <header>
         <div class="container">
-            <div class="logo-container">
-                <img src="./logo.png" alt="Lowkeycraft Logo" class="logo mx-auto">
-            </div>
-            
-            <h1 class="main-title">Lowkeycraft</h1>
-            <p class="subtitle">Terms of Service Agreement</p>
-            
-            <div class="intro-text">
-                <p>Please read this document carefully and in its entirety. This is a <strong class="highlight-green">legally binding agreement</strong> between you and Fozmu Studios. By connecting to our Minecraft server and Discord community, you agree to these comprehensive terms.</p>
-            </div>
-            
-            <div class="company-badge">
-                <img src="./foz.png" alt="Fozmu Studios Logo" class="company-logo">
-                <span class="font-semibold">Powered by Fozmu Studios</span>
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="./logo.png" alt="Lowkeycraft Logo">
+                    <h1 class="site-title">LOWKEYCRAFT</h1>
+                </div>
+                <nav>
+                    <a href="index.html">Home</a>
+                    <a href="discord.html">Discord</a>
+                    <a href="stats.html">Stats</a>
+                    <a href="staff.html">Staff</a>
+                    <a href="tos.html" class="active">Terms</a>
+                    <a href="policy.html">Privacy</a>
+                </nav>
             </div>
         </div>
     </header>
-    
-    <main class="content-section">
-        <div class="container">
-            
-            <section class="section-card">
-                <div class="section-number">01</div>
-                <h2 class="section-title">
-                    <span>🎯</span> Core Agreement & Player Conduct
-                </h2>
-                
-                <p class="text-lg mb-6 text-gray-200">
-                    Your participation in <span class="code-inline">Lowkeycraft</span> represents complete acceptance of this agreement. 
-                    This agreement may be updated at any time without prior notice.
-                </p>
-                
-                <div class="grid-2">
-                    <div class="info-card">
-                        <h3><span>🌟</span> Community Philosophy</h3>
-                        <p>Our primary goal is to maintain a safe, respectful, and enjoyable environment for all players. We believe every member has a responsibility to conduct themselves with maturity and consideration.</p>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3><span>⛔</span> Prohibited Behaviors</h3>
-                        <p>Engaging in unauthorized activities including hacking, griefing, harassment, hate speech, spam, and impersonation will result in immediate disciplinary action.</p>
-                    </div>
-                </div>
-                
-                <div class="warning-card">
-                    <h4 class="warning-title">
-                        <span>🚫</span> Zero Tolerance Policy
-                    </h4>
-                    <p class="mb-4 text-gray-200">The following violations will result in immediate action:</p>
-                    
-                    <div class="violation-grid">
-                        <div class="violation-item">
-                            <strong>Cheating & Exploits</strong>
-                            <p>Kill Aura, Aimbot, Speed Hacks, X-Ray, unauthorized client modifications</p>
-                        </div>
-                        <div class="violation-item">
-                            <strong>Griefing & Vandalism</strong>
-                            <p>Property destruction, theft, land manipulation, malicious server exploitation</p>
-                        </div>
-                        <div class="violation-item">
-                            <strong>Harassment & Bullying</strong>
-                            <p>Verbal abuse, threats, discriminatory language, persistent unwanted contact</p>
-                        </div>
-                        <div class="violation-item">
-                            <strong>Inappropriate Content</strong>
-                            <p>NSFW material, hate speech, spam, unauthorized advertising</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="section-card">
-                <div class="section-number">02</div>
-                <h2 class="section-title">
-                    <span>🔐</span> Account Responsibility & Security
-                </h2>
-                
-                <div class="grid-3">
-                    <div class="info-card">
-                        <h3><span>👤</span> Account Responsibility</h3>
-                        <p>You are fully responsible for all actions under your account. Account sharing is at your own risk. Using alternate accounts to evade bans results in permanent suspension.</p>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3><span>🛡️</span> Security Protection</h3>
-                        <p>Maintain the security of your login credentials. We are not liable for compromised accounts. Report security breaches immediately.</p>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3><span>👶</span> Age Requirements</h3>
-                        <p>You must be of legal age to form contracts or have parental consent. Our service is not intended for children under 13.</p>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="section-card">
-                <div class="section-number">03</div>
-                <h2 class="section-title">
-                    <span>⚖️</span> Mojang Policies & EULA Compliance
-                </h2>
-                
-                <p class="text-lg mb-6 text-gray-200">
-                    All players must comply with official <strong class="highlight-green">Mojang Studios</strong> policies governing Minecraft usage.
-                </p>
-                
-                <div class="grid-2">
-                    <div class="info-card">
-                        <h3><span>📜</span> Minecraft EULA</h3>
-                        <p class="mb-4">Violations of the Minecraft End User License Agreement constitute violations of our Terms of Service.</p>
-                        <a href="https://www.minecraft.net/eula" target="_blank" class="button-primary">View EULA</a>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3><span>🏷️</span> Brand Guidelines</h3>
-                        <p class="mb-4">Content creators must adhere to Mojang Brand & Asset Guidelines for all platform usage.</p>
-                        <a href="https://www.minecraft.net/usage-guidelines" target="_blank" class="button-primary">View Guidelines</a>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="section-card">
-                <div class="section-number">04</div>
-                <h2 class="section-title">
-                    <span>🏗️</span> Server Property & In-Game Assets
-                </h2>
-                
-                <div class="grid-2">
-                    <div class="info-card">
-                        <h3><span>⚠️</span> Ownership Rights</h3>
-                        <p>All server content belongs to <span class="code-inline">Fozmu Studios</span>. Creating content grants us perpetual, royalty-free license for promotional use without compensation.</p>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3><span>💾</span> Data Preservation</h3>
-                        <p>Server provided "as is" with no guarantees. While we maintain backups, we cannot guarantee preservation of builds, items, or data.</p>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="section-card">
-                <div class="section-number">05</div>
-                <h2 class="section-title">
-                    <span>🛡️</span> Moderation & Enforcement
-                </h2>
-                
-                <p class="text-lg mb-6 text-gray-200">
-                    Our staff maintains authority to interpret and enforce these Terms of Service to ensure a positive environment for everyone.
-                </p>
-                
-                <div class="level-grid">
-                    <div class="level-card level-1">
-                        <div class="text-2xl mb-2">⚠️</div>
-                        <div class="font-bold text-lg">Level 1</div>
-                        <div class="text-sm">Verbal Warnings</div>
-                    </div>
-                    <div class="level-card level-2">
-                        <div class="text-2xl mb-2">🔇</div>
-                        <div class="font-bold text-lg">Level 2</div>
-                        <div class="text-sm">Formal Warnings & Mutes</div>
-                    </div>
-                    <div class="level-card level-3">
-                        <div class="text-2xl mb-2">⏰</div>
-                        <div class="font-bold text-lg">Level 3</div>
-                        <div class="text-sm">Temporary Bans</div>
-                    </div>
-                    <div class="level-card level-4">
-                        <div class="text-2xl mb-2">🔒</div>
-                        <div class="font-bold text-lg">Level 4</div>
-                        <div class="text-sm">Permanent Bans</div>
-                    </div>
-                </div>
-                
-                <div class="info-card">
-                    <h3><span>📝</span> Appeals Process</h3>
-                    <p>Submit respectful appeals through our Discord server. Senior staff decisions are final. Harassment of staff results in additional punishment.</p>
-                </div>
-            </section>
-            
-            <section class="section-card">
-                <div class="section-number">06</div>
-                <h2 class="section-title">
-                    <span>💬</span> Discord Server & Platform Rules
-                </h2>
-                
-                <p class="text-lg mb-6 text-gray-200">
-                    Our Discord server extends our community. Cross-platform violations apply to both services.
-                </p>
-                
-                <div class="link-grid">
-                    <a href="https://discord.com/terms" target="_blank" class="link-card">
-                        <div class="link-title">📋 Discord Terms</div>
-                        <div class="link-desc">Platform rules and regulations</div>
-                    </a>
-                    <a href="https://discord.com/privacy" target="_blank" class="link-card">
-                        <div class="link-title">🔒 Privacy Policy</div>
-                        <div class="link-desc">Data protection guidelines</div>
-                    </a>
-                    <a href="https://discord.com/guidelines" target="_blank" class="link-card">
-                        <div class="link-title">👥 Community Guidelines</div>
-                        <div class="link-desc">Behavior standards</div>
-                    </a>
-                </div>
-                
-                <div class="text-center mt-8">
-                    <a href="https://discord.gg/dzUKwn3dG8" target="_blank" class="button-primary text-lg px-8 py-3">
-                        Join Our Discord
-                    </a>
-                </div>
-            </section>
-            
-            <section class="section-card">
-                <div class="section-number">07</div>
-                <h2 class="section-title">
-                    <span>💰</span> Donations & Virtual Goods
-                </h2>
-                
-                <div class="grid-3">
-                    <div class="info-card">
-                        <h3><span>🎁</span> Voluntary Support</h3>
-                        <p>All contributions are voluntary donations for operational costs. Non-refundable under any circumstances including bans or server closure.</p>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3><span>💎</span> Virtual Value</h3>
-                        <p>Virtual items, ranks, and currency have no real-world value. Non-transferable and cannot be exchanged for tangible assets.</p>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3><span>⚠️</span> Chargeback Policy</h3>
-                        <p>Unauthorized chargebacks result in immediate permanent bans and potential legal action. Contact us before disputing payments.</p>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="section-card">
-                <div class="section-number">08</div>
-                <h2 class="section-title">
-                    <span>⚖️</span> Liability & Server Status
-                </h2>
-                
-                <div class="grid-3">
-                    <div class="info-card">
-                        <h3>"As Is" Service</h3>
-                        <p>No warranties on availability, uptime, security, or performance. You assume all usage risks.</p>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3>Limited Liability</h3>
-                        <p>No liability for direct, indirect, or consequential damages including data or financial loss.</p>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3>Indemnification</h3>
-                        <p>You indemnify Fozmu Studios against claims arising from your usage or agreement violations.</p>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="section-card">
-                <div class="section-number">09</div>
-                <h2 class="section-title">
-                    <span>🔒</span> Privacy Policy & Data Protection
-                </h2>
 
-                <p class="text-lg mb-6 text-gray-200">
-                    Your privacy is important to us. Please review our comprehensive <strong class="highlight-green">Privacy Policy</strong> for detailed information about how we collect, use, and protect your personal data.
-                </p>
-
-                <div class="grid-2">
-                    <div class="info-card">
-                        <h3><span>📊</span> Data Collection Summary</h3>
-                        <p>We collect usernames, IP addresses, and chat logs solely for moderation, security, and Terms of Service enforcement. For complete details, see our Privacy Policy.</p>
-                    </div>
-
-                    <div class="info-card">
-                        <h3><span>🛡️</span> Data Security Summary</h3>
-                        <p>We don't sell personal information to third parties. Reasonable measures protect your data from unauthorized access or disclosure. Full security details are in our Privacy Policy.</p>
-                    </div>
-
-                    <div class="info-card">
-                        <h3><span>📋</span> Complete Privacy Information</h3>
-                        <p class="mb-4">Our Privacy Policy covers data collection, usage, retention, your rights, and contact information in comprehensive detail.</p>
-                        <a href="policy.html" class="button-primary">📋 View Privacy Policy</a>
-                    </div>
-
-                    <div class="info-card">
-                        <h3><span>🤝</span> Policy Agreement</h3>
-                        <p>By using our services, you agree to both these Terms of Service and our Privacy Policy. Both documents work together to protect you and our community.</p>
-                    </div>
-                </div>
-            </section>
-            
-        </div>
-    </main>
-    
-    <footer class="footer-section">
-        <div class="container">
-            <div class="text-6xl mb-6">⚡</div>
-            <h2 class="footer-title">Final Agreement</h2>
-            <p class="footer-text">
-                By continuing to play on <span class="code-inline">Lowkeycraft</span>, you acknowledge that you have 
-                <strong class="highlight-green">read, understood, and agree</strong> to abide by these Terms of Service in their entirety.
-            </p>
-            
-            <div class="footer-buttons">
-                <a href="policy.html" class="button-primary">🔒 Privacy Policy</a>
-                <div class="button-primary">✓ Terms Accepted</div>
-                <div class="button-primary">🎮 Ready to Play</div>
-                <div class="button-primary">🚀 Join Community</div>
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <h1 class="hero-title">Terms of Service</h1>
+                <p class="hero-subtitle">Community Guidelines & Rules</p>
             </div>
-            
-            <div class="footer-info">
-                <p>© 2025 <span class="highlight-green">Fozmu Studios</span> • All Rights Reserved • <span class="code-inline">Lowkeycraft</span> Minecraft Server</p>
-                <p class="text-sm mt-2 opacity-60">Terms subject to change without notice • Last updated: January 2025</p>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="content-section">
+
+    <p><strong>Last Updated:</strong> January 2025</p>
+
+    <h2>1. Acceptance of Terms</h2>
+    <p>By accessing and playing on Lowkeycraft servers, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.</p>
+
+    <h2>2. Server Rules</h2>
+
+    <h3>2.1 General Conduct</h3>
+    <p>Be respectful to all players and staff members</p>
+    <p>Use appropriate language at all times</p>
+    <p>No harassment, bullying, or discrimination</p>
+    <p>Follow instructions from staff members</p>
+
+    <h3>2.2 Prohibited Activities</h3>
+    <p>No griefing or destroying other players' builds</p>
+    <p>No cheating, hacking, or use of unauthorized modifications</p>
+    <p>No advertising other servers or external services</p>
+    <p>No spamming in chat or with builds</p>
+    <p>No inappropriate builds or content</p>
+
+    <h3>2.3 Building Guidelines</h3>
+    <p>Respect other players' builds and property</p>
+    <p>Build appropriate content only</p>
+    <p>No massive redstone contraptions that cause lag</p>
+    <p>Follow world-specific building rules</p>
+
+    <h2>3. Account Responsibility</h2>
+    <p>You are responsible for your Minecraft account's actions</p>
+    <p>Do not share your account with others</p>
+    <p>Report any unauthorized use immediately</p>
+    <p>Multiple accounts by the same person may be restricted</p>
+
+    <h2>4. Staff Authority</h2>
+    <p>Staff decisions are final</p>
+    <p>Staff may enforce rules at their discretion</p>
+    <p>Appeals can be made through Discord or email</p>
+    <p>Disrespecting staff may result in additional penalties</p>
+
+    <h2>5. Consequences</h2>
+
+    <h3>5.1 Warning System</h3>
+    <p>First offense: Verbal warning</p>
+    <p>Second offense: Written warning</p>
+    <p>Third offense: Temporary suspension</p>
+    <p>Severe violations may result in immediate ban</p>
+
+    <h3>5.2 Ban Appeals</h3>
+    <p>Appeals can be submitted through Discord</p>
+    <p>Provide honest explanation of the situation</p>
+    <p>Show understanding of rules violated</p>
+    <p>Appeals are reviewed by senior staff</p>
+
+    <h2>6. Server Modifications</h2>
+    <p>We reserve the right to modify server rules at any time</p>
+    <p>Players will be notified of significant changes</p>
+    <p>Continued play constitutes acceptance of new rules</p>
+
+    <h2>7. Privacy</h2>
+    <p>We collect minimal data necessary for server operation</p>
+    <p>See our Privacy Policy for detailed information</p>
+    <p>We do not sell or share personal information</p>
+
+    <h2>8. Limitation of Liability</h2>
+    <p>Lowkeycraft is provided "as is" without warranties</p>
+    <p>We are not liable for any loss of virtual items or progress</p>
+    <p>Server maintenance may cause temporary unavailability</p>
+    <p>We are not responsible for player interactions</p>
+
+    <h2>9. Termination</h2>
+    <p>We may terminate access for violations of these terms</p>
+    <p>Players may discontinue use at any time</p>
+    <p>Certain provisions survive termination</p>
+
+    <h2>10. Contact Information</h2>
+    <p><strong>Email:</strong> <a href="mailto:support@fozmu.studio">support@fozmu.studio</a></p>
+    <p><strong>Discord:</strong> <a href="discord.html">Join our Discord server</a></p>
+    <p><strong>Response Time:</strong> 24-48 hours</p>
+
+    <h2>11. Governing Law</h2>
+    <p>These terms are governed by applicable laws</p>
+    <p>Any disputes will be resolved through appropriate channels</p>
+
+    <p><strong>By playing on Lowkeycraft servers, you acknowledge that you have read, understood, and agree to these Terms of Service.</strong></p>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="policy.html">Privacy Policy</a>
+                    <a href="discord.html">Discord</a>
+                    <a href="staff.html">Staff</a>
+                </div>
+                <p>© 2025 Fozmu Studios • Lowkeycraft Minecraft Server</p>
             </div>
         </div>
     </footer>
-    
-    <script>
-        function updateProgressBar() {
-            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-            document.getElementById('progressBar').style.width = scrolled + '%';
-        }
-        
-        document.addEventListener('DOMContentLoaded', function() {
-            window.addEventListener('scroll', updateProgressBar);
-            
-            // Smooth scrolling for any anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 </html>

@@ -11,7 +11,12 @@
       "Bash(taskkill:*)",
       "Bash(netstat:*)",
       "Bash(findstr:*)",
-      "WebFetch(domain:bdb.ai)"
+      "WebFetch(domain:bdb.ai)",
+      "Bash(dir C:UsersdanieDesktoplowkeycraft)",
+      "WebFetch(domain:block-display.com)",
+      "WebFetch(domain:www.canva.com)",
+      "WebFetch(domain:www.behance.net)",
+      "WebFetch(domain:lowkeycraft.net)"
     ],
     "deny": [],
     "ask": []

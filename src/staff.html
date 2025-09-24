@@ -3,1005 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lowkeycraft - Staff Policy</title>
+    <title>Staff Portal - Lowkeycraft</title>
     <link rel="icon" href="logo.png" type="image/x-icon">
-
-    <meta name="og:card" content="summary_large_image">
-    <meta name="og:title" content="Lowkeycraft - Staff Policy">
-    <meta name="og:description" content="Official Lowkeycraft Minecraft Server Staff Policy - Guidelines and responsibilities for our moderation team">
-    <meta name="og:url" content="https://lowkeycraft.net/logo.png">
-    <meta content="#22c55e" data-react-helmet="true" name="theme-color">
+    <link rel="stylesheet" href="style.css">
     <meta name="google-site-verification" content="16MaYtHjuvQX2w8Hocvgembth-ta3El1KVCbawKO13E" />
-
-    <meta name="google-adsense-account" content="ca-pub-6389097554596560">
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
-
-        :root {
-            --primary-green: #22c55e;
-            --dark-green: #16a34a;
-            --light-green: #4ade80;
-            --accent-green: #dcfce7;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            background: #0f172a;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #0f172a;
-            background-image:
-                radial-gradient(circle at 20% 30%, rgba(34, 197, 94, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(34, 197, 94, 0.03) 0%, transparent 50%),
-                linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-            min-height: 100vh;
-            line-height: 1.6;
-            color: #e2e8f0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .header-section {
-            background: linear-gradient(135deg, #064e3b 0%, #059669 50%, #047857 100%);
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 20%, rgba(34, 197, 94, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 80%, rgba(34, 197, 94, 0.05) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .logo-container {
-            margin-bottom: 2rem;
-        }
-
-        .logo {
-            width: 120px;
-            height: 120px;
-            border-radius: 1rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            object-fit: contain;
-            background: white;
-            padding: 0.5rem;
-        }
-
-        .main-title {
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .subtitle {
-            font-size: 1.5rem;
-            font-weight: 600;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-        }
-
-        .intro-text {
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            font-size: 1.1rem;
-            opacity: 0.95;
-            line-height: 1.7;
-        }
-
-        .company-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            border-radius: 0.75rem;
-            padding: 1rem 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .company-logo {
-            width: 32px;
-            height: 32px;
-            border-radius: 0.5rem;
-            object-fit: contain;
-            background: white;
-            padding: 0.25rem;
-        }
-
-        .content-section {
-            padding: 5rem 0;
-            position: relative;
-        }
-
-        .content-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 30%, rgba(34, 197, 94, 0.03) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 70%, rgba(34, 197, 94, 0.02) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .section-card {
-            background: rgba(30, 41, 59, 0.95);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(34, 197, 94, 0.2);
-            border-radius: 1rem;
-            box-shadow:
-                0 8px 32px rgba(0, 0, 0, 0.4),
-                inset 0 1px 0 rgba(255, 255, 255, 0.05);
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            border-left: 4px solid var(--primary-green);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .section-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.05), transparent);
-            transition: left 0.8s ease;
-        }
-
-        .section-card:hover::before {
-            left: 100%;
-        }
-
-        .section-card:hover {
-            transform: translateY(-8px) scale(1.01);
-            border-color: rgba(34, 197, 94, 0.4);
-            box-shadow:
-                0 20px 40px rgba(0, 0, 0, 0.4),
-                0 0 20px rgba(34, 197, 94, 0.2),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        }
-
-        .section-number {
-            position: absolute;
-            top: -12px;
-            right: 2rem;
-            background: var(--primary-green);
-            color: white;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 0.9rem;
-            box-shadow: 0 2px 8px rgba(34, 197, 94, 0.3);
-        }
-
-        .section-title {
-            font-size: 1.875rem;
-            font-weight: 700;
-            color: #f1f5f9;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .position-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .info-card {
-            background: rgba(15, 23, 42, 0.6);
-            border: 1px solid rgba(34, 197, 94, 0.2);
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .info-card:hover {
-            background: rgba(15, 23, 42, 0.8);
-            border-color: rgba(34, 197, 94, 0.4);
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 15px rgba(34, 197, 94, 0.1);
-        }
-
-        .info-card h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #f1f5f9;
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .info-card p {
-            color: #cbd5e1;
-            line-height: 1.6;
-            margin-bottom: 0.75rem;
-        }
-
-        .position-card {
-            background: rgba(15, 23, 42, 0.6);
-            border: 1px solid rgba(34, 197, 94, 0.2);
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            border-left: 4px solid var(--primary-green);
-        }
-
-        .position-card:hover {
-            background: rgba(15, 23, 42, 0.8);
-            border-color: rgba(34, 197, 94, 0.4);
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 15px rgba(34, 197, 94, 0.1);
-        }
-
-        .position-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: var(--primary-green);
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .position-description {
-            color: #cbd5e1;
-            line-height: 1.6;
-            font-size: 0.9rem;
-        }
-
-        .requirement-list {
-            list-style: none;
-            padding: 0;
-            margin: 1rem 0;
-        }
-
-        .requirement-list li {
-            background: rgba(15, 23, 42, 0.6);
-            border-left: 3px solid var(--primary-green);
-            border-radius: 0.25rem;
-            padding: 0.75rem 1rem;
-            margin-bottom: 0.5rem;
-            color: #cbd5e1;
-            transition: all 0.3s ease;
-        }
-
-        .requirement-list li:hover {
-            background: rgba(15, 23, 42, 0.8);
-            border-color: var(--light-green);
-        }
-
-        .strike-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .strike-card {
-            text-align: center;
-            padding: 1.5rem;
-            border-radius: 0.75rem;
-            border: 2px solid;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .strike-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        }
-
-        .strike-1 {
-            background: rgba(251, 191, 36, 0.1);
-            border-color: rgba(251, 191, 36, 0.3);
-            color: #fbbf24;
-        }
-
-        .strike-2 {
-            background: rgba(249, 115, 22, 0.1);
-            border-color: rgba(249, 115, 22, 0.3);
-            color: #fb923c;
-        }
-
-        .strike-3 {
-            background: rgba(239, 68, 68, 0.1);
-            border-color: rgba(239, 68, 68, 0.3);
-            color: #f87171;
-        }
-
-        .log-example {
-            background: rgba(15, 23, 42, 0.8);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            border-radius: 0.5rem;
-            padding: 1.5rem;
-            margin: 1rem 0;
-            font-family: 'Courier New', monospace;
-            font-size: 0.875rem;
-            border-left: 4px solid var(--primary-green);
-        }
-
-        .log-example .log-field {
-            color: var(--primary-green);
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-
-        .log-example .log-value {
-            color: #cbd5e1;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-section {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: white;
-            padding: 4rem 0 2rem;
-            text-align: center;
-            border-top: 1px solid rgba(34, 197, 94, 0.2);
-        }
-
-        .footer-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            color: var(--light-green);
-        }
-
-        .footer-text {
-            font-size: 1.25rem;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            opacity: 0.9;
-        }
-
-        .footer-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-
-        .footer-info {
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid #374151;
-            opacity: 0.7;
-        }
-
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-green), var(--light-green));
-            z-index: 1000;
-            transition: width 0.3s ease;
-        }
-
-        .code-inline {
-            background: rgba(15, 23, 42, 0.8);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            border-radius: 0.25rem;
-            padding: 0.25rem 0.5rem;
-            font-family: 'Courier New', monospace;
-            font-size: 0.875rem;
-            color: var(--primary-green);
-        }
-
-        .highlight-green {
-            color: var(--primary-green);
-            font-weight: 600;
-        }
-
-        .button-primary {
-            display: inline-block;
-            background: var(--primary-green);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .button-primary:hover {
-            background: var(--dark-green);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
-        }
-
-        @media (max-width: 768px) {
-            .main-title {
-                font-size: 2.5rem;
-            }
-
-            .section-card {
-                padding: 1.5rem;
-            }
-
-            .grid-2, .grid-3, .position-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 
 <body>
-    <!-- Password Modal -->
-    <div id="passwordModal" style="
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(15, 23, 42, 0.95);
-        backdrop-filter: blur(10px);
-        display: none;
-        align-items: center;
-        justify-content: center;
-        z-index: 10000;
-    ">
-        <div style="
-            background: rgba(30, 41, 59, 0.95);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            border-radius: 1rem;
-            padding: 3rem;
-            text-align: center;
-            max-width: 400px;
-            width: 90%;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        ">
-            <div style="font-size: 3rem; margin-bottom: 1rem;">🔒</div>
-            <h2 style="color: #f1f5f9; font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">Staff Access Required</h2>
-            <p style="color: #cbd5e1; margin-bottom: 2rem;">This page is restricted to authorized staff members only.</p>
-            <input type="password" id="staffPassword" placeholder="Enter staff password" style="
-                width: 100%;
-                padding: 0.75rem;
-                border: 1px solid rgba(34, 197, 94, 0.5);
-                border-radius: 0.5rem;
-                background: white;
-                color: #1f2937;
-                font-size: 1rem;
-                margin-bottom: 1rem;
-                outline: none;
-                box-sizing: border-box;
-                display: block;
-            ">
-            <button onclick="checkPassword()" style="
-                width: 100%;
-                padding: 0.75rem 1.5rem;
-                background: #22c55e;
-                color: white;
-                border: none;
-                border-radius: 0.5rem;
-                font-weight: 600;
-                font-size: 1rem;
-                cursor: pointer;
-                transition: all 0.3s ease;
-            " onmouseover="this.style.background='#16a34a'" onmouseout="this.style.background='#22c55e'">Access Staff Area</button>
-            <div id="passwordError" style="color: #f87171; margin-top: 1rem; display: none;">Incorrect password. Please try again.</div>
-        </div>
-    </div>
-
-    <!-- Main Content -->
-    <div id="mainContent">
-        <div class="progress-bar" id="progressBar"></div>
-
-        <header class="header-section">
+    <header>
         <div class="container">
-            <div class="logo-container">
-                <img src="./logo.png" alt="Lowkeycraft Logo" class="logo mx-auto">
-            </div>
-
-            <h1 class="main-title">Lowkeycraft</h1>
-            <p class="subtitle">Staff Policy Documentation</p>
-
-            <div class="intro-text">
-                <p>Welcome to <strong class="highlight-green">Fozmu Studios</strong> moderation team. This comprehensive guide outlines every duty, responsibility, and policy for our staff members to maintain the highest standards of professionalism and community safety.</p>
-            </div>
-
-            <div class="company-badge">
-                <img src="./foz.png" alt="Fozmu Studios Logo" class="company-logo">
-                <span class="font-semibold">Powered by Fozmu Studios</span>
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="./logo.png" alt="Lowkeycraft Logo">
+                    <h1 class="site-title">LOWKEYCRAFT</h1>
+                </div>
+                <nav>
+                    <a href="index.html">Home</a>
+                    <a href="discord.html">Discord</a>
+                    <a href="stats.html">Stats</a>
+                    <a href="staff.html" class="active">Staff</a>
+                    <a href="tos.html">Terms</a>
+                    <a href="policy.html">Privacy</a>
+                </nav>
             </div>
         </div>
     </header>
 
-    <main class="content-section">
-        <div class="container">
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <h1 class="hero-title">Staff Portal</h1>
+                <p class="hero-subtitle">Authorized Access Only</p>
+            </div>
+        </section>
 
-            <section class="section-card">
-                <div class="section-number">01</div>
-                <h2 class="section-title">
-                    <span>👋</span> Introduction & Welcome
-                </h2>
+        <section class="section">
+            <div class="container">
+                <div id="loginSection">
+                    <div class="feature-card" style="max-width: 500px; margin: 0 auto;">
+                        <h2>Staff Login</h2>
+                        <p>This portal is restricted to authorized Lowkeycraft staff members only.</p>
 
-                <p class="text-lg mb-6 text-gray-200">
-                    Welcome to <span class="code-inline">Fozmu Studios</span>! We are glad to have you aboard and wish you the best in your moderation career with us.
-                </p>
+                        <form id="passwordForm">
+                            <div class="form-group">
+                                <label>Enter Staff Password:</label>
+                                <input type="password" id="passwordInput" placeholder="Staff password..." required>
+                            </div>
+                            <button type="submit" id="loginButton" class="btn btn-primary">Access Portal</button>
+                        </form>
 
-                <div class="grid-2">
-                    <div class="info-card">
-                        <h3><span>🎯</span> Our Mission</h3>
-                        <p>To create and maintain a safe, enjoyable, and professional gaming environment for all players across our platforms.</p>
-                    </div>
-
-                    <div class="info-card">
-                        <h3><span>📋</span> Your Role</h3>
-                        <p>This documentation lists every duty and responsibility expected of you as a valued member of our moderation team.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section-card">
-                <div class="section-number">02</div>
-                <h2 class="section-title">
-                    <span>👥</span> Staff Positions & Hierarchy
-                </h2>
-
-                <p class="text-lg mb-6 text-gray-200">
-                    Every position in <strong class="highlight-green">Fozmu Studios</strong> has specific duties and authority levels. Understanding the hierarchy ensures proper communication and workflow.
-                </p>
-
-                <div class="position-grid">
-                    <div class="position-card">
-                        <div class="position-title"><span>👑</span> Lead Developer</div>
-                        <div class="position-description">
-                            Lead Developer of Fozmu Studios. Simply said, this is Fozmu - the Owner of Fozmu Studios with ultimate authority over all operations.
-                        </div>
-                    </div>
-
-                    <div class="position-card">
-                        <div class="position-title"><span>💻</span> Developer</div>
-                        <div class="position-description">
-                            Developer of Fozmu Studios who helps in development of games and projects. Responsible for bringing new features to games owned by Fozmu Studios.
-                        </div>
-                    </div>
-
-                    <div class="position-card">
-                        <div class="position-title"><span>🔧</span> Manager</div>
-                        <div class="position-description">
-                            Manager of the Discord Server responsible for bots, moderators, and everything in the server. Also responsible for training moderators and can issue strikes to moderators who violate policies.
-                        </div>
-                    </div>
-
-                    <div class="position-card">
-                        <div class="position-title"><span>🛡️</span> Lead Moderator</div>
-                        <div class="position-description">
-                            In charge of moderators and speaks for all moderators in Fozmu Studios. Must monitor moderator behavior and inform managers of any violations within the moderation team.
-                        </div>
-                    </div>
-
-                    <div class="position-card">
-                        <div class="position-title"><span>⭐</span> Senior Moderator</div>
-                        <div class="position-description">
-                            More trusted moderator who has been with Fozmu Studios for a long time. Has more Discord powers and additional in-game commands.
-                        </div>
-                    </div>
-
-                    <div class="position-card">
-                        <div class="position-title"><span>💬</span> Discord Moderator</div>
-                        <div class="position-description">
-                            Must monitor our Discord server and punish users who violate server rules. Responsible for banning users who violate Discord Terms of Service.
-                        </div>
-                    </div>
-
-                    <div class="position-card">
-                        <div class="position-title"><span>🎮</span> Game Moderator</div>
-                        <div class="position-description">
-                            Must maintain a safe environment in our games. Responsible for punishing users who violate game rules and banning or kicking exploiters (cheaters).
-                        </div>
-                    </div>
-
-                    <div class="position-card">
-                        <div class="position-title"><span>🌟</span> Community Manager</div>
-                        <div class="position-description">
-                            Speaks for the community and works to make our community more active. Allowed to host events and game nights. <strong>NOTE:</strong> This role is not part of our promotion track.
-                        </div>
-                    </div>
-
-                    <div class="position-card">
-                        <div class="position-title"><span>📝</span> Trial Moderator</div>
-                        <div class="position-description">
-                            Moderator in training who can be removed from the team if they violate any rules during their trial period.
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section-card">
-                <div class="section-number">03</div>
-                <h2 class="section-title">
-                    <span>📋</span> General Requirements & Standards
-                </h2>
-
-                <p class="text-lg mb-6 text-gray-200">
-                    Every member of <strong class="highlight-green">Fozmu Studios</strong> must adhere to these fundamental requirements to maintain our professional standards.
-                </p>
-
-                <div class="grid-2">
-                    <div class="info-card">
-                        <h3><span>🤝</span> Professional Standards</h3>
-                        <ul class="requirement-list">
-                            <li>Must remain professional at all times</li>
-                            <li>Must remain respectful to all community members</li>
-                            <li>You must remain apolitical during duties</li>
-                            <li>You must treat everyone equally</li>
-                        </ul>
-                    </div>
-
-                    <div class="info-card">
-                        <h3><span>🔒</span> Security Requirements</h3>
-                        <ul class="requirement-list">
-                            <li>Do not share your account with anyone</li>
-                            <li>2FA (Two-Factor Authentication) is required</li>
-                            <li>Report any security breaches immediately</li>
-                            <li>Maintain confidentiality of staff information</li>
-                        </ul>
-                    </div>
-
-                    <div class="info-card">
-                        <h3><span>⚠️</span> Consequences</h3>
-                        <p>You will be demoted if your account has been compromised due to a serious security breach.</p>
-                        <p class="mt-2">You will no longer be part of our staff team if you have been banned from Roblox.</p>
-                    </div>
-
-                    <div class="info-card">
-                        <h3><span>📝</span> Documentation</h3>
-                        <p><strong class="highlight-green">ALL KICKS AND BANS MUST BE LOGGED</strong> in our #mod-logs channel!</p>
-                        <p class="mt-2">Not logging serious punishments like kicks or bans can lead to demotion or retirement from Fozmu Studios.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section-card">
-                <div class="section-number">04</div>
-                <h2 class="section-title">
-                    <span>📝</span> Moderation Logging Requirements
-                </h2>
-
-                <p class="text-lg mb-6 text-gray-200">
-                    Proper documentation is <strong class="highlight-green">critical</strong> for maintaining transparency and accountability in our moderation actions.
-                </p>
-
-                <div class="grid-2">
-                    <div class="info-card">
-                        <h3><span>📋</span> Required Log Format</h3>
-                        <div class="log-example">
-                            <div class="log-field">Username:</div>
-                            <div class="log-value">[Player's Username]</div>
-                            <div class="log-field">Reason:</div>
-                            <div class="log-value">[Detailed reason for punishment]</div>
-                            <div class="log-field">Punishment:</div>
-                            <div class="log-value">[Type of punishment applied]</div>
-                            <div class="log-field">Evidence:</div>
-                            <div class="log-value">[Screenshot or video recording]</div>
-                        </div>
-                    </div>
-
-                    <div class="info-card">
-                        <h3><span>📄</span> Example Log Entry</h3>
-                        <div class="log-example">
-                            <div class="log-field">Username:</div>
-                            <div class="log-value">Fozmu_dev</div>
-                            <div class="log-field">Reason:</div>
-                            <div class="log-value">Violating Roblox ToS</div>
-                            <div class="log-field">Punishment:</div>
-                            <div class="log-value">Ban</div>
-                            <div class="log-field">Evidence:</div>
-                            <div class="log-value">Screenshot/video recording provided</div>
-                        </div>
+                        <div id="errorMessage" class="error-message" style="display: none;"></div>
                     </div>
                 </div>
 
-                <div class="info-card">
-                    <h3><span>⚠️</span> Critical Warning</h3>
-                    <p class="text-red-300">If no evidence is provided with a ban report, <strong>the ban will be revoked!</strong></p>
-                </div>
-            </section>
+                <div id="staffContent" class="animate-fade-in" style="display: none;">
+                    <div class="feature-card" style="max-width: 800px; margin: 0 auto;">
+                        <h2>Welcome to Staff Portal</h2>
+                        <p>You have successfully logged in to the staff portal.</p>
 
-            <section class="section-card">
-                <div class="section-number">05</div>
-                <h2 class="section-title">
-                    <span>⚡</span> Striking System & Disciplinary Actions
-                </h2>
-
-                <p class="text-lg mb-6 text-gray-200">
-                    Our progressive disciplinary system ensures fair treatment while maintaining high standards for all staff members.
-                </p>
-
-                <div class="strike-grid">
-                    <div class="strike-card strike-1">
-                        <div class="text-4xl mb-3">⚠️</div>
-                        <div class="font-bold text-xl mb-2">Strike 1</div>
-                        <div class="text-sm mb-3">Serious Warning</div>
-                        <div class="text-xs">
-                            First violation of staff policy or rules. <strong>Trial Moderators are demoted immediately.</strong>
+                        <div class="features-grid">
+                            <div class="feature-card">
+                                <h3>Server Management</h3>
+                                <p>Available through game console</p>
+                            </div>
+                            <div class="feature-card">
+                                <h3>Discord Management</h3>
+                                <p>Available through Discord admin panel</p>
+                            </div>
+                            <div class="feature-card">
+                                <h3>Support Email</h3>
+                                <p><a href="mailto:support@fozmu.studio">support@fozmu.studio</a></p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="strike-card strike-2">
-                        <div class="text-4xl mb-3">🔥</div>
-                        <div class="font-bold text-xl mb-2">Strike 2</div>
-                        <div class="text-sm mb-3">Final Warning</div>
-                        <div class="text-xs">
-                            Can lead to demotion or retirement depending on severity. Acts as final warning for minor issues.
+                        <h3>Quick Actions</h3>
+                        <div class="cta-buttons">
+                            <a href="stats.html" class="btn btn-primary">View Player Statistics</a>
+                            <a href="discord.html" class="btn btn-secondary">Access Discord</a>
                         </div>
-                    </div>
 
-                    <div class="strike-card strike-3">
-                        <div class="text-4xl mb-3">💥</div>
-                        <div class="font-bold text-xl mb-2">Strike 3</div>
-                        <div class="text-sm mb-3">Immediate Retirement</div>
-                        <div class="text-xs">
-                            Immediate retirement with blacklist from future applications. Possible server ban for serious violations.
+                        <div class="feature-card" style="margin-top: 2rem;">
+                            <h3>Staff Guidelines</h3>
+                            <p>• Always maintain professional behavior</p>
+                            <p>• Respond to player issues promptly</p>
+                            <p>• Follow server rules and policies</p>
+                            <p>• Report any issues to administration</p>
                         </div>
+
+                        <button onclick="logout()" class="btn btn-secondary" style="margin-top: 2rem;">Logout</button>
                     </div>
                 </div>
-
-                <div class="info-card">
-                    <h3><span>📜</span> Important Notice</h3>
-                    <p>We are <strong>not obligated</strong> to show evidence of demotions or retirements and can ignore requests to explain the reason for retirement.</p>
-                </div>
-            </section>
-
-            <section class="section-card">
-                <div class="section-number">06</div>
-                <h2 class="section-title">
-                    <span>🎁</span> Staff Perks & Benefits
-                </h2>
-
-                <div class="grid-2">
-                    <div class="info-card">
-                        <h3><span>🎮</span> Game Access</h3>
-                        <p>All server staff members, <strong>even if retired</strong>, will be given access to all gamepasses for free as a thank you for their service.</p>
-                    </div>
-
-                    <div class="info-card">
-                        <h3><span>🏆</span> Recognition</h3>
-                        <p>Your contributions to the community are valued and recognized, with special privileges and access to exclusive staff areas.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section-card">
-                <div class="section-number">07</div>
-                <h2 class="section-title">
-                    <span>ℹ️</span> Additional Information & Support
-                </h2>
-
-                <div class="grid-3">
-                    <div class="info-card">
-                        <h3><span>👁️</span> Monitoring</h3>
-                        <p>We will monitor you both in-game and in our Discord server to ensure policy compliance and provide assistance when needed.</p>
-                    </div>
-
-                    <div class="info-card">
-                        <h3><span>🎓</span> Training Required</h3>
-                        <p>Every <span class="code-inline">@Trial Moderator</span> must be trained. If you haven't been trained, please reach out to one of our <span class="code-inline">@Managers</span>.</p>
-                    </div>
-
-                    <div class="info-card">
-                        <h3><span>🚨</span> Reporting Violations</h3>
-                        <p>If you notice staff members violating policies or server rules, please contact our <span class="code-inline">@Managers</span> as soon as possible.</p>
-                    </div>
-
-                    <div class="info-card">
-                        <h3><span>❓</span> Questions & Support</h3>
-                        <p>If you're facing problems with the moderation team or have questions, talk to one of our <span class="code-inline">@Managers</span> for assistance.</p>
-                    </div>
-
-                    <div class="info-card">
-                        <h3><span>🆘</span> Escalation Process</h3>
-                        <p>Managers will help you and escalate to the development team if needed. Don't hesitate to reach out for support.</p>
-                    </div>
-
-                    <div class="info-card">
-                        <h3><span>💬</span> Contact Methods</h3>
-                        <p>For any additional questions or concerns, please reach out to one of our <span class="code-inline">@Managers</span> on Discord.</p>
-                    </div>
-                </div>
-            </section>
-
-        </div>
+            </div>
+        </section>
     </main>
 
-    <footer class="footer-section">
+    <footer>
         <div class="container">
-            <div class="text-6xl mb-6">🛡️</div>
-            <h2 class="footer-title">Staff Excellence</h2>
-            <p class="footer-text">
-                Thank you for being part of our <strong class="highlight-green">moderation team</strong>. Your dedication to maintaining a safe and welcoming community is what makes <span class="code-inline">Lowkeycraft</span> special.
-            </p>
-
-            <div class="footer-buttons">
-                <a href="tos.html" class="button-primary">📋 Terms of Service</a>
-                <a href="policy.html" class="button-primary">🔒 Privacy Policy</a>
-                <a href="discord.html" class="button-primary">💬 Discord Community</a>
-            </div>
-
-            <div class="footer-info">
-                <p>© 2025 <span class="highlight-green">Fozmu Studios</span> • All Rights Reserved • <span class="code-inline">Lowkeycraft</span> Staff Documentation</p>
-                <p class="text-sm mt-2 opacity-60">Staff Policy last updated: January 2025 • Internal Use Only</p>
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="discord.html">Discord</a>
+                    <a href="stats.html">Stats</a>
+                </div>
+                <p>© 2025 Fozmu Studios • Staff Portal</p>
             </div>
         </div>
     </footer>
-    </div> <!-- End mainContent -->
 
     <script>
-        async function checkPassword() {
-            const input = document.getElementById('staffPassword');
-            const error = document.getElementById('passwordError');
-            const button = document.querySelector('button[onclick="checkPassword()"]');
+        const passwordForm = document.getElementById('passwordForm');
+        const passwordInput = document.getElementById('passwordInput');
+        const loginButton = document.getElementById('loginButton');
+        const errorMessage = document.getElementById('errorMessage');
+        const loginSection = document.getElementById('loginSection');
+        const staffContent = document.getElementById('staffContent');
 
-            if (!input) return;
+        // Check if user is already logged in
+        if (sessionStorage.getItem('staffLoggedIn') === 'true') {
+            showStaffContent();
+        }
 
-            // Disable button and show loading state
-            button.disabled = true;
-            button.textContent = 'Verifying...';
+        passwordForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const password = passwordInput.value;
+            if (!password) return;
+
+            loginButton.disabled = true;
+            loginButton.textContent = 'Verifying...';
+            errorMessage.style.display = 'none';
 
             try {
-                const response = await fetch('/api/verify-password', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        password: input.value
-                    })
-                });
+                // For local development, use client-side check
+                if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                    // Local development fallback
+                    const isValid = password === 'MyLowkeyWorld!'; // This matches the .env STAFF_PASSWORD
 
-                const result = await response.json();
-
-                if (result.success) {
-                    // Store authentication in session
-                    sessionStorage.setItem('staffAuthenticated', 'true');
-                    // Hide modal
-                    document.getElementById('passwordModal').style.display = 'none';
-                    // Show content
-                    document.getElementById('mainContent').style.display = 'block';
+                    if (isValid) {
+                        sessionStorage.setItem('staffLoggedIn', 'true');
+                        showStaffContent();
+                    } else {
+                        showError('Invalid password. Access denied.');
+                    }
                 } else {
-                    error.style.display = 'block';
-                    input.value = '';
-                    input.focus();
-                    // Add shake animation
-                    input.style.animation = 'shake 0.5s ease-in-out';
-                    setTimeout(() => {
-                        input.style.animation = '';
-                    }, 500);
+                    // Production: Use Netlify Function
+                    const response = await fetch('/api/verify-password', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ password: password })
+                    });
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        sessionStorage.setItem('staffLoggedIn', 'true');
+                        showStaffContent();
+                    } else {
+                        showError('Invalid password. Access denied.');
+                    }
                 }
-            } catch (err) {
-                console.error('Authentication error:', err);
-                error.textContent = 'Connection error. Please try again.';
-                error.style.display = 'block';
+            } catch (error) {
+                console.error('Login error:', error);
+                showError('Connection error. Please try again.');
             } finally {
-                // Re-enable button
-                button.disabled = false;
-                button.textContent = 'Access Staff Area';
-            }
-        }
-
-        function updateProgressBar() {
-            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-            document.getElementById('progressBar').style.width = scrolled + '%';
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            // Check if user is authenticated
-            if (sessionStorage.getItem('staffAuthenticated') !== 'true') {
-                // Show password modal
-                document.getElementById('passwordModal').style.display = 'flex';
-                document.getElementById('mainContent').style.display = 'none';
-                // Focus on password input
-                setTimeout(() => {
-                    const passwordInput = document.getElementById('staffPassword');
-                    if (passwordInput) {
-                        passwordInput.focus();
-                    }
-                }, 100);
-            } else {
-                // Hide modal and show content
-                document.getElementById('passwordModal').style.display = 'none';
-                document.getElementById('mainContent').style.display = 'block';
-            }
-
-            window.addEventListener('scroll', updateProgressBar);
-
-            // Smooth scrolling for any anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-
-            // Allow Enter key to submit password
-            const passwordInput = document.getElementById('staffPassword');
-            if (passwordInput) {
-                passwordInput.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') {
-                        checkPassword();
-                    }
-                });
+                loginButton.disabled = false;
+                loginButton.textContent = 'Access Portal';
+                passwordInput.value = '';
             }
         });
 
-        // Add shake animation styles
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes shake {
-                0%, 100% { transform: translateX(0); }
-                25% { transform: translateX(-5px); }
-                75% { transform: translateX(5px); }
-            }
-        `;
-        document.head.appendChild(style);
+        function showStaffContent() {
+            loginSection.style.display = 'none';
+            staffContent.style.display = 'block';
+        }
+
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.style.display = 'block';
+        }
+
+        function logout() {
+            sessionStorage.removeItem('staffLoggedIn');
+            location.reload();
+        }
+
+        passwordInput.focus();
     </script>
 </body>
-
 </html>
