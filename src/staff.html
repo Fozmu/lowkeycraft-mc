@@ -24,7 +24,6 @@
                 <nav>
                     <a href="index.html">Home</a>
                     <a href="discord.html">Discord</a>
-                    <a href="stats.html">Stats</a>
                     <a href="staff.html" class="active">Staff</a>
                     <a href="tos.html">Terms</a>
                     <a href="policy.html">Privacy</a>
@@ -82,8 +81,7 @@
 
                         <h3>Quick Actions</h3>
                         <div class="cta-buttons">
-                            <a href="stats.html" class="btn btn-primary">View Player Statistics</a>
-                            <a href="discord.html" class="btn btn-secondary">Access Discord</a>
+                            <a href="discord.html" class="btn btn-primary">Access Discord</a>
                         </div>
 
                         <div class="feature-card" style="margin-top: 2rem;">
@@ -206,15 +204,28 @@
             errorMessage.style.display = 'none';
 
             try {
-                // For local development, use client-side check
-                if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-                    // Local development fallback
-                    console.log('Local development mode detected');
-                    console.log('Entered password:', password);
-                    console.log('Expected password: MyLowkeyWorld!');
-                    const isValid = password === 'MyLowkeyWorld!'; // This matches the .env STAFF_PASSWORD
-                    console.log('Password valid:', isValid);
+                // Try Netlify Function first (for production)
+                const response = await fetch('/api/verify-password', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ password: password })
+                });
 
+                const result = await response.json();
+
+                if (result.success) {
+                    sessionStorage.setItem('staffLoggedIn', 'true');
+                    showStaffContent();
+                } else {
+                    showError('Invalid password. Access denied.');
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                // Fallback for local development
+                if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                    const isValid = password === 'MyLowkeyWorld!';
                     if (isValid) {
                         sessionStorage.setItem('staffLoggedIn', 'true');
                         showStaffContent();
@@ -222,27 +233,8 @@
                         showError('Invalid password. Access denied.');
                     }
                 } else {
-                    // Production: Use Netlify Function
-                    const response = await fetch('/api/verify-password', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({ password: password })
-                    });
-
-                    const result = await response.json();
-
-                    if (result.success) {
-                        sessionStorage.setItem('staffLoggedIn', 'true');
-                        showStaffContent();
-                    } else {
-                        showError('Invalid password. Access denied.');
-                    }
+                    showError('Connection error. Please try again.');
                 }
-            } catch (error) {
-                console.error('Login error:', error);
-                showError('Connection error. Please try again.');
             } finally {
                 loginButton.disabled = false;
                 loginButton.textContent = 'Access Portal';
