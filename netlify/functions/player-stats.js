@@ -93,8 +93,8 @@ async function getPlayerStats(username, serverType = 'main') {
     console.log('Server ID:', serverId);
 
     if (!apiToken || apiToken === 'your_api_token_here') {
-        console.log('Using mock data - Exaroton API token not configured');
-        return getMockPlayerStats(username, serverType);
+        console.log('Error: Exaroton API token not configured');
+        return null;
     }
 
     if (!serverId) {
@@ -187,14 +187,13 @@ async function getPlayerStats(username, serverType = 'main') {
             console.error('Error checking player lists:', listError.response?.data || listError.message);
         }
 
-        // If player not found via API but might exist, try mock data as fallback
-        console.log(`Player ${username} not found in current online players or admin lists, checking mock data...`);
-        return getMockPlayerStats(username, serverType);
+        // Player not found in current online players or admin lists
+        console.log(`Player ${username} not found in current online players or admin lists on ${serverType} server`);
+        return null;
 
     } catch (error) {
         console.error('Error fetching from Exaroton API:', error.response?.data || error.message);
-        // Fallback to mock data on API error
-        return getMockPlayerStats(username, serverType);
+        return null;
     }
 }
 
@@ -215,7 +214,7 @@ function getMockPlayerStats(username, serverType = 'main') {
         events: {
             players: ['Fozmu', 'Grumm', 'EventMaster', 'BuilderPro', 'RedstoneKing'],
             data: {
-                'Fozmu': { isOnline: true, playtime: '245h', firstJoin: '3 months ago', lastSeen: 'Now', blocksBreaken: 8750, blocksPlaced: 12340, deaths: 47 },
+                'Fozmu': { isOnline: true, playtime: '245h', firstJoin: '3 months ago', lastSeen: 'Now', blocksBreaken: 8750, blocksPlaced: 12340, deaths: 29 },
                 'Grumm': { isOnline: false, playtime: '156h', firstJoin: '2 months ago', lastSeen: '5 hours ago', blocksBreaken: 6500, blocksPlaced: 9800, deaths: 29 },
                 'EventMaster': { isOnline: true, playtime: '678h', firstJoin: '4 months ago', lastSeen: 'Now', blocksBreaken: 25000, blocksPlaced: 38000, deaths: 12 },
                 'BuilderPro': { isOnline: false, playtime: '432h', firstJoin: '1 month ago', lastSeen: '1 day ago', blocksBreaken: 15000, blocksPlaced: 45000, deaths: 8 },

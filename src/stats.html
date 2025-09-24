@@ -724,8 +724,37 @@
             `;
         }
 
-        // Auto-focus on input
+        // Load real-time server status on page load
+        async function loadServerStatus() {
+            try {
+                const response = await fetch('/api/server-status');
+                const result = await response.json();
+
+                if (result.success) {
+                    const data = result.data;
+                    document.getElementById('totalPlayers').textContent = data.totalOnline;
+                    document.getElementById('onlinePlayers').textContent = data.totalOnline;
+
+                    console.log('Server Status:', {
+                        Main: data.mainServer.isRunning ? 'Online' : 'Offline',
+                        Events: data.eventsServer.isRunning ? 'Online' : 'Offline',
+                        Total: data.totalOnline
+                    });
+                } else {
+                    console.error('Failed to load server status');
+                }
+            } catch (error) {
+                console.error('Error loading server status:', error);
+                // Keep default values (--) if API fails
+            }
+        }
+
+        // Auto-focus on input and load server status
         usernameInput.focus();
+        loadServerStatus();
+
+        // Refresh server status every 30 seconds
+        setInterval(loadServerStatus, 30000);
     </script>
 </body>
 </html>
