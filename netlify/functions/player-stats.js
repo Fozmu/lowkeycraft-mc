@@ -94,7 +94,7 @@ async function getPlayerStats(username, serverType = 'main') {
 
     if (!apiToken || apiToken === 'your_api_token_here') {
         console.log('Using mock data - Exaroton API token not configured');
-        return getMockPlayerStats(username);
+        return getMockPlayerStats(username, serverType);
     }
 
     if (!serverId) {
@@ -189,45 +189,57 @@ async function getPlayerStats(username, serverType = 'main') {
 
         // If player not found via API but might exist, try mock data as fallback
         console.log(`Player ${username} not found in current online players or admin lists, checking mock data...`);
-        return getMockPlayerStats(username);
+        return getMockPlayerStats(username, serverType);
 
     } catch (error) {
         console.error('Error fetching from Exaroton API:', error.response?.data || error.message);
         // Fallback to mock data on API error
-        return getMockPlayerStats(username);
+        return getMockPlayerStats(username, serverType);
     }
 }
 
 // Mock function for testing when API token is not available or as fallback
-function getMockPlayerStats(username) {
-    const mockPlayers = ['Notch', 'jeb_', 'Dinnerbone', 'Grumm', 'Fozmu'];
+function getMockPlayerStats(username, serverType = 'main') {
+    // Define players for each server separately
+    const serverPlayers = {
+        main: {
+            players: ['Notch', 'jeb_', 'Dinnerbone', 'Steve', 'Alex'],
+            data: {
+                'Notch': { isOnline: false, playtime: '1250h', firstJoin: '6 months ago', lastSeen: '2 days ago', blocksBreaken: 45000, blocksPlaced: 67000, deaths: 23 },
+                'jeb_': { isOnline: true, playtime: '890h', firstJoin: '4 months ago', lastSeen: 'Now', blocksBreaken: 32000, blocksPlaced: 48000, deaths: 15 },
+                'Dinnerbone': { isOnline: false, playtime: '567h', firstJoin: '3 months ago', lastSeen: '1 week ago', blocksBreaken: 28000, blocksPlaced: 35000, deaths: 67 },
+                'Steve': { isOnline: true, playtime: '234h', firstJoin: '2 months ago', lastSeen: 'Now', blocksBreaken: 12000, blocksPlaced: 18000, deaths: 34 },
+                'Alex': { isOnline: false, playtime: '445h', firstJoin: '5 months ago', lastSeen: '3 days ago', blocksBreaken: 19000, blocksPlaced: 25000, deaths: 45 }
+            }
+        },
+        events: {
+            players: ['Fozmu', 'Grumm', 'EventMaster', 'BuilderPro', 'RedstoneKing'],
+            data: {
+                'Fozmu': { isOnline: true, playtime: '245h', firstJoin: '3 months ago', lastSeen: 'Now', blocksBreaken: 8750, blocksPlaced: 12340, deaths: 47 },
+                'Grumm': { isOnline: false, playtime: '156h', firstJoin: '2 months ago', lastSeen: '5 hours ago', blocksBreaken: 6500, blocksPlaced: 9800, deaths: 29 },
+                'EventMaster': { isOnline: true, playtime: '678h', firstJoin: '4 months ago', lastSeen: 'Now', blocksBreaken: 25000, blocksPlaced: 38000, deaths: 12 },
+                'BuilderPro': { isOnline: false, playtime: '432h', firstJoin: '1 month ago', lastSeen: '1 day ago', blocksBreaken: 15000, blocksPlaced: 45000, deaths: 8 },
+                'RedstoneKing': { isOnline: false, playtime: '321h', firstJoin: '2 months ago', lastSeen: '6 hours ago', blocksBreaken: 8900, blocksPlaced: 12000, deaths: 56 }
+            }
+        }
+    };
 
-    if (!mockPlayers.includes(username)) {
-        return null; // Player not found
+    const serverData = serverPlayers[serverType];
+
+    if (!serverData || !serverData.players.includes(username)) {
+        return null; // Player not found on this server
     }
 
-    // Special stats for Fozmu
-    if (username === 'Fozmu') {
-        return {
-            username: username,
-            isOnline: true,
-            playtime: '245h',
-            firstJoin: '3 months ago',
-            lastSeen: 'Now',
-            blocksBreaken: 8750,
-            blocksPlaced: 12340,
-            deaths: 47
-        };
-    }
+    const playerData = serverData.data[username];
 
     return {
         username: username,
-        isOnline: Math.random() > 0.5,
-        playtime: `${Math.floor(Math.random() * 500)}h`,
-        firstJoin: '2 months ago',
-        lastSeen: '3 days ago',
-        blocksBreaken: Math.floor(Math.random() * 10000),
-        blocksPlaced: Math.floor(Math.random() * 15000),
-        deaths: Math.floor(Math.random() * 100)
+        isOnline: playerData.isOnline,
+        playtime: playerData.playtime,
+        firstJoin: playerData.firstJoin,
+        lastSeen: playerData.lastSeen,
+        blocksBreaken: playerData.blocksBreaken,
+        blocksPlaced: playerData.blocksPlaced,
+        deaths: playerData.deaths
     };
 }
