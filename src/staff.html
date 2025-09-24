@@ -87,11 +87,8 @@
                         </div>
 
                         <div class="feature-card" style="margin-top: 2rem;">
-                            <h3>Staff Guidelines</h3>
-                            <p>• Always maintain professional behavior</p>
-                            <p>• Respond to player issues promptly</p>
-                            <p>• Follow server rules and policies</p>
-                            <p>• Report any issues to administration</p>
+                            <h3>Quick Actions</h3>
+                            <button onclick="showStaffGuidelines()" class="btn btn-primary">View Staff Guidelines</button>
                         </div>
 
                         <button onclick="logout()" class="btn btn-secondary" style="margin-top: 2rem;">Logout</button>
@@ -113,6 +110,77 @@
             </div>
         </div>
     </footer>
+
+    <!-- Staff Guidelines Modal -->
+    <div id="staffGuidelinesModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Complete Staff Guidelines & Policies</h2>
+                <span class="close" onclick="closeStaffGuidelines()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="guidelines-section">
+                    <h3>1. General Conduct & Behavior</h3>
+                    <p>• Always maintain professional behavior in all interactions</p>
+                    <p>• Use appropriate language at all times - no profanity or inappropriate content</p>
+                    <p>• Treat all players with respect regardless of age, skill level, or background</p>
+                    <p>• Be patient and helpful when assisting players with questions or issues</p>
+                    <p>• Lead by example - demonstrate the behavior you expect from players</p>
+
+                    <h3>2. Response & Communication</h3>
+                    <p>• Respond to player issues and questions promptly (within 30 minutes when online)</p>
+                    <p>• Use clear, helpful language when explaining rules or providing assistance</p>
+                    <p>• Escalate complex issues to senior staff or administration when needed</p>
+                    <p>• Keep player conversations professional and server-related</p>
+                    <p>• Use Discord for staff coordination and important announcements</p>
+
+                    <h3>3. Rule Enforcement</h3>
+                    <p>• Follow server rules and policies consistently and fairly</p>
+                    <p>• Apply the warning system appropriately: verbal → written → temporary ban</p>
+                    <p>• Document all disciplinary actions in the staff channel</p>
+                    <p>• Consult with senior staff for permanent bans or complex situations</p>
+                    <p>• Never abuse staff powers or show favoritism to specific players</p>
+
+                    <h3>4. Server Management</h3>
+                    <p>• Monitor chat regularly for inappropriate behavior or spam</p>
+                    <p>• Check for griefing and unauthorized modifications to builds</p>
+                    <p>• Assist with server events and community activities</p>
+                    <p>• Help maintain server performance by monitoring resource usage</p>
+                    <p>• Report technical issues or bugs to the administration team</p>
+
+                    <h3>5. Confidentiality & Privacy</h3>
+                    <p>• Keep staff discussions and decisions confidential</p>
+                    <p>• Protect player privacy - never share personal information</p>
+                    <p>• Don't discuss disciplinary actions publicly with other players</p>
+                    <p>• Report security concerns or suspicious activities immediately</p>
+
+                    <h3>6. Staff Responsibilities</h3>
+                    <p>• Be active and engaged with the community</p>
+                    <p>• Participate in staff meetings and training sessions</p>
+                    <p>• Stay updated on server rules and policy changes</p>
+                    <p>• Provide feedback and suggestions for server improvements</p>
+                    <p>• Maintain your staff account security - use strong passwords</p>
+
+                    <h3>7. Emergency Procedures</h3>
+                    <p>• In case of server attacks or major issues, contact administration immediately</p>
+                    <p>• For serious rule violations, temporary ban first then document</p>
+                    <p>• If unsure about a decision, always ask senior staff for guidance</p>
+                    <p>• Emergency contact: support@fozmu.studio</p>
+
+                    <h3>8. Staff Code of Ethics</h3>
+                    <p>• Act with integrity and honesty in all situations</p>
+                    <p>• Never use staff privileges for personal gain</p>
+                    <p>• Respect the decisions of senior staff and administration</p>
+                    <p>• Maintain a positive attitude and contribute to team morale</p>
+                    <p>• Report any staff misconduct or policy violations</p>
+                </div>
+                <div class="modal-footer">
+                    <p><strong>Last Updated:</strong> January 2025</p>
+                    <p><strong>Questions?</strong> Contact administration at support@fozmu.studio</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
         const passwordForm = document.getElementById('passwordForm');
@@ -141,7 +209,11 @@
                 // For local development, use client-side check
                 if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
                     // Local development fallback
+                    console.log('Local development mode detected');
+                    console.log('Entered password:', password);
+                    console.log('Expected password: MyLowkeyWorld!');
                     const isValid = password === 'MyLowkeyWorld!'; // This matches the .env STAFF_PASSWORD
+                    console.log('Password valid:', isValid);
 
                     if (isValid) {
                         sessionStorage.setItem('staffLoggedIn', 'true');
@@ -192,6 +264,22 @@
             sessionStorage.removeItem('staffLoggedIn');
             location.reload();
         }
+
+        function showStaffGuidelines() {
+            document.getElementById('staffGuidelinesModal').style.display = 'block';
+        }
+
+        function closeStaffGuidelines() {
+            document.getElementById('staffGuidelinesModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside of it
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('staffGuidelinesModal');
+            if (event.target === modal) {
+                closeStaffGuidelines();
+            }
+        });
 
         passwordInput.focus();
     </script>

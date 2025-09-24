@@ -16,7 +16,11 @@
       "WebFetch(domain:block-display.com)",
       "WebFetch(domain:www.canva.com)",
       "WebFetch(domain:www.behance.net)",
-      "WebFetch(domain:lowkeycraft.net)"
+      "WebFetch(domain:lowkeycraft.net)",
+      "Bash(start http://localhost:3003/staff.html)",
+      "WebFetch(domain:minecraftuuid.com)",
+      "WebFetch(domain:pl.namemc.com)",
+      "WebFetch(domain:namemc.com)"
     ],
     "deny": [],
     "ask": []
