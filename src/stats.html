@@ -500,11 +500,11 @@
 
                 <div class="header-stats">
                     <div class="stat-item">
-                        <span class="stat-value" id="totalPlayers">--</span>
-                        <span class="stat-label">Total Players</span>
+                        <span class="stat-value" id="totalPlayersEver">--</span>
+                        <span class="stat-label">Total Players Ever</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-value" id="onlinePlayers">--</span>
+                        <span class="stat-value" id="onlinePlayersNow">--</span>
                         <span class="stat-label">Online Now</span>
                     </div>
                     <div class="stat-item">
@@ -732,8 +732,8 @@
 
                 if (result.success) {
                     const data = result.data;
-                    document.getElementById('totalPlayers').textContent = data.totalOnline;
-                    document.getElementById('onlinePlayers').textContent = data.totalOnline;
+                    document.getElementById('totalPlayersEver').textContent = data.totalPlayersEver || '--';
+                    document.getElementById('onlinePlayersNow').textContent = data.totalOnline;
 
                     console.log('Server Status:', {
                         Main: data.mainServer.isRunning ? 'Online' : 'Offline',
