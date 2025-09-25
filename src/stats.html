@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Stats - Lowkeycraft</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/prismarine-nbt@2.5.0/prismarine-nbt.min.js"></script>
+
+    <meta name="og:card" content="summary_large_image">
+    <meta name="og:title" content="Player Stats - Lowkeycraft">
+    <meta name="og:description" content="Check your Minecraft player statistics and profile information on Lowkeycraft server.">
+    <meta name="og:url" content="https://lowkeycraft.net/logo.png">
+    <meta content="#2ae88a" data-react-helmet="true" name="theme-color">
+    <meta name="google-site-verification" content="16MaYtHjuvQX2w8Hocvgembth-ta3El1KVCbawKO13E" />
+    <meta name="google-adsense-account" content="ca-pub-6389097554596560">
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6389097554596560"
+     crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="./logo.png" alt="Lowkeycraft Logo">
+                    <h1 class="site-title">LOWKEYCRAFT</h1>
+                </div>
+                <nav>
+                    <a href="index.html">Home</a>
+                    <a href="discord.html">Discord</a>
+                    <a href="staff.html">Staff</a>
+                    <a href="stats.html" class="active">Stats</a>
+                    <a href="tos.html">Terms</a>
+                    <a href="policy.html">Privacy</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <h1 class="hero-title">Player Statistics</h1>
+                <p class="hero-subtitle">Check Your Minecraft Profile & Stats</p>
+                <p class="hero-description">Enter your Minecraft username to view your player profile, skin, and statistics. Get detailed information about your Minecraft account including UUID, skin history, and more.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="feature-card" style="max-width: 600px; margin: 0 auto 2rem;">
+                    <h2 style="color: var(--green-400); margin-bottom: 1.5rem; text-align: center;">Player Statistics</h2>
+
+                    <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem;">
+                        <button type="button" id="usernameTab" class="btn btn-secondary" style="flex: 1; background: var(--green-500); color: #000;">Username Search</button>
+                        <button type="button" id="fileTab" class="btn btn-secondary" style="flex: 1;">Upload .dat File</button>
+                    </div>
+
+                    <div id="usernameSearch">
+                        <div style="margin-bottom: 1.5rem;">
+                            <label for="username" style="display: block; color: var(--text-primary); margin-bottom: 0.5rem; font-weight: 500; font-size: 0.875rem;">Minecraft Username</label>
+                            <input type="text" id="username" name="username" placeholder="Enter Minecraft username..." maxlength="16" required style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: 0.5rem; background: rgba(15, 23, 42, 0.8); color: var(--text-primary); font-size: 0.875rem; transition: all 0.2s ease; box-sizing: border-box;">
+                        </div>
+                        <div style="text-align: center;">
+                            <button type="button" id="searchBtn" class="btn btn-primary" style="width: 200px;">Search Player</button>
+                        </div>
+                    </div>
+
+                    <div id="fileUpload" style="display: none;">
+                        <div style="margin-bottom: 1.5rem;">
+                            <label for="datFile" style="display: block; color: var(--text-primary); margin-bottom: 0.5rem; font-weight: 500; font-size: 0.875rem;">Upload Player .dat File</label>
+                            <input type="file" id="datFile" accept=".dat" style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: 0.5rem; background: rgba(15, 23, 42, 0.8); color: var(--text-primary); font-size: 0.875rem; transition: all 0.2s ease; box-sizing: border-box;">
+                            <p style="color: var(--text-muted); font-size: 0.75rem; margin-top: 0.5rem;">Upload a player .dat file from your server's playerdata folder</p>
+                        </div>
+                        <div style="text-align: center;">
+                            <button type="button" id="parseBtn" class="btn btn-primary" style="width: 200px;">Parse File</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="loadingIndicator" class="feature-card" style="display: none; max-width: 600px; margin: 0 auto; text-align: center;">
+                    <div class="loading" style="position: relative; display: inline-block; width: 2rem; height: 2rem; margin-bottom: 1rem;"></div>
+                    <p style="color: var(--text-secondary);">Loading player data...</p>
+                </div>
+
+                <div id="errorMessage" style="display: none;"></div>
+                <div id="playerResults" style="display: none;"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="discord.html">Discord</a>
+                    <a href="tos.html">Terms of Service</a>
+                    <a href="policy.html">Privacy Policy</a>
+                </div>
+                <p>© 2025 Fozmu Studios • All Rights Reserved • Lowkeycraft Minecraft Server</p>
+                <p>Est. 2024 • Family-friendly server • Global community</p>
+                <p>Join our community and start building your legacy today!</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const searchBtn = document.getElementById('searchBtn');
+        const parseBtn = document.getElementById('parseBtn');
+        const usernameTab = document.getElementById('usernameTab');
+        const fileTab = document.getElementById('fileTab');
+        const usernameSearch = document.getElementById('usernameSearch');
+        const fileUpload = document.getElementById('fileUpload');
+        const usernameInput = document.getElementById('username');
+        const datFileInput = document.getElementById('datFile');
+        const loadingIndicator = document.getElementById('loadingIndicator');
+        const errorMessage = document.getElementById('errorMessage');
+        const playerResults = document.getElementById('playerResults');
+
+        // Tab switching functionality
+        usernameTab.addEventListener('click', () => {
+            usernameTab.style.background = 'var(--green-500)';
+            usernameTab.style.color = '#000';
+            fileTab.style.background = 'var(--surface)';
+            fileTab.style.color = 'var(--text-primary)';
+            usernameSearch.style.display = 'block';
+            fileUpload.style.display = 'none';
+            hideAllResults();
+        });
+
+        fileTab.addEventListener('click', () => {
+            fileTab.style.background = 'var(--green-500)';
+            fileTab.style.color = '#000';
+            usernameTab.style.background = 'var(--surface)';
+            usernameTab.style.color = 'var(--text-primary)';
+            usernameSearch.style.display = 'none';
+            fileUpload.style.display = 'block';
+            hideAllResults();
+        });
+
+        // Parse .dat file button
+        parseBtn.addEventListener('click', async () => {
+            const file = datFileInput.files[0];
+            if (!file) {
+                showError('Please select a .dat file to upload.');
+                return;
+            }
+
+            if (!file.name.endsWith('.dat')) {
+                showError('Please select a valid .dat file.');
+                return;
+            }
+
+            await parseDatFile(file);
+        });
+
+        searchBtn.addEventListener('click', async () => {
+            const username = usernameInput.value.trim();
+
+            if (!username) {
+                showError('Please enter a username.');
+                return;
+            }
+
+            if (username.length < 3 || username.length > 16) {
+                showError('Username must be between 3 and 16 characters.');
+                return;
+            }
+
+            if (!/^[a-zA-Z0-9_]+$/.test(username)) {
+                showError('Username can only contain letters, numbers, and underscores.');
+                return;
+            }
+
+            await searchPlayer(username);
+        });
+
+        async function parseDatFile(file) {
+            hideAllResults();
+            loadingIndicator.style.display = 'block';
+
+            try {
+                const arrayBuffer = await file.arrayBuffer();
+                const buffer = new Uint8Array(arrayBuffer);
+
+                // Parse NBT data using prismarine-nbt
+                const { parsed } = await window.nbt.parse(buffer);
+
+                if (!parsed || !parsed.value) {
+                    throw new Error('Invalid NBT data format');
+                }
+
+                const playerData = parsed.value;
+                const filename = file.name.replace('.dat', '');
+
+                // Try to get UUID from filename if it looks like one
+                let uuid = '';
+                if (filename.length === 36 && filename.includes('-')) {
+                    uuid = filename;
+                } else if (filename.length === 32) {
+                    uuid = formatUUID(filename);
+                }
+
+                await displayServerPlayerData(playerData, uuid, filename);
+
+            } catch (error) {
+                console.error('Error parsing .dat file:', error);
+                showError('Failed to parse .dat file. Please ensure it\'s a valid Minecraft player data file.');
+            } finally {
+                loadingIndicator.style.display = 'none';
+            }
+        }
+
+        usernameInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                searchBtn.click();
+            }
+        });
+
+        usernameInput.addEventListener('focus', function() {
+            this.style.borderColor = 'var(--green-500)';
+            this.style.boxShadow = '0 0 0 3px rgba(34, 197, 94, 0.1)';
+        });
+
+        usernameInput.addEventListener('blur', function() {
+            this.style.borderColor = 'var(--border)';
+            this.style.boxShadow = 'none';
+        });
+
+        async function searchPlayer(username) {
+            hideAllResults();
+            loadingIndicator.style.display = 'block';
+
+            try {
+                const uuid = await getPlayerUUID(username);
+                const profile = await getPlayerProfile(uuid, username);
+                displayPlayerProfile(profile);
+            } catch (error) {
+                console.error('Error fetching player data:', error);
+                showError(error.message || 'Failed to fetch player data. Please try again.');
+            } finally {
+                loadingIndicator.style.display = 'none';
+            }
+        }
+
+        async function getPlayerUUID(username) {
+            try {
+                const response = await fetch(`https://api.minetools.eu/uuid/${username}`);
+
+                if (!response.ok) {
+                    if (response.status === 404) {
+                        throw new Error(`Player "${username}" not found. Please check the username and try again.`);
+                    }
+                    throw new Error('Failed to fetch player data. Please try again later.');
+                }
+
+                const data = await response.json();
+
+                if (data.status === 'ERR') {
+                    throw new Error(`Player "${username}" not found. Please check the username and try again.`);
+                }
+
+                return data.id.replace(/-/g, '');
+            } catch (error) {
+                if (error.message.includes('not found')) {
+                    throw error;
+                }
+
+                console.error('API Error:', error);
+
+                try {
+                    const fallbackResponse = await fetch(`https://playerdb.co/api/player/minecraft/${username}`);
+
+                    if (fallbackResponse.ok) {
+                        const fallbackData = await fallbackResponse.json();
+                        if (fallbackData.success && fallbackData.data.player) {
+                            return fallbackData.data.player.id.replace(/-/g, '');
+                        }
+                    }
+                } catch (fallbackError) {
+                    console.error('Fallback API Error:', fallbackError);
+                }
+
+                throw new Error('Unable to connect to Minecraft services. Please try again later.');
+            }
+        }
+
+        async function getPlayerProfile(uuid, username) {
+            return {
+                uuid: uuid,
+                username: username,
+                originalUsername: username,
+                properties: []
+            };
+        }
+
+        function displayPlayerProfile(profile) {
+            const formattedUUID = formatUUID(profile.uuid);
+            const avatarUrl = `https://crafatar.com/avatars/${profile.uuid}?size=128&overlay`;
+            const skinUrl = `https://crafatar.com/renders/body/${profile.uuid}?size=200&overlay`;
+            const nameHistoryUrl = `https://namemc.com/profile/${profile.uuid}`;
+
+            playerResults.innerHTML = `
+                <div class="player-profile animate-fade-in">
+                    <div class="player-header">
+                        <div class="player-skin-display">
+                            <div class="skin-avatar">
+                                <img src="${avatarUrl}"
+                                     alt="${profile.username} Avatar"
+                                     class="player-avatar"
+                                     width="128"
+                                     height="128"
+                                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div style="display: none; width: 128px; height: 128px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.75rem;">
+                                    No Avatar
+                                </div>
+                                <p style="color: var(--text-muted); font-size: 0.75rem; margin-top: 0.5rem;">Avatar</p>
+                            </div>
+                            <div class="skin-full-body">
+                                <img src="${skinUrl}"
+                                     alt="${profile.username} Skin"
+                                     class="player-skin"
+                                     width="100"
+                                     height="200"
+                                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div style="display: none; width: 100px; height: 200px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.75rem;">
+                                    No Skin
+                                </div>
+                                <p style="color: var(--text-muted); font-size: 0.75rem; margin-top: 0.5rem;">Full Body</p>
+                            </div>
+                        </div>
+                        <div class="player-info">
+                            <h2 class="player-name">${profile.username}</h2>
+                            <div class="uuid-info">
+                                UUID: ${formattedUUID}
+                            </div>
+                            <p style="color: var(--text-secondary); margin-top: 1rem;">
+                                Account Type: <strong style="color: var(--green-400);">Java Edition</strong>
+                            </p>
+                            <p style="color: var(--text-secondary);">
+                                Profile Status: <strong style="color: var(--green-400);">Valid</strong>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="player-stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">Java</div>
+                            <div class="stat-label">Account Type</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${profile.username.length}</div>
+                            <div class="stat-label">Username Length</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">✓</div>
+                            <div class="stat-label">Valid Account</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">Active</div>
+                            <div class="stat-label">Profile Status</div>
+                        </div>
+                    </div>
+
+                </div>
+            `;
+
+            playerResults.style.display = 'block';
+        }
+
+        async function displayServerPlayerData(playerData, uuid, filename) {
+            const username = playerData.playerGameType ? 'Server Player' : filename;
+
+            // Extract key player statistics
+            const stats = {
+                health: playerData.Health ? Math.round(playerData.Health.value) : 'Unknown',
+                food: playerData.foodLevel ? playerData.foodLevel.value : 'Unknown',
+                experience: playerData.XpTotal ? playerData.XpTotal.value : 'Unknown',
+                level: playerData.XpLevel ? playerData.XpLevel.value : 'Unknown',
+                gamemode: getGameMode(playerData.playerGameType ? playerData.playerGameType.value : 0),
+                dimension: getDimension(playerData.Dimension ? playerData.Dimension.value : 0),
+                score: playerData.Score ? playerData.Score.value : 'Unknown'
+            };
+
+            // Get position
+            const pos = playerData.Pos ? playerData.Pos.value : null;
+            const position = pos ? {
+                x: Math.round(pos.value[0].value),
+                y: Math.round(pos.value[1].value),
+                z: Math.round(pos.value[2].value)
+            } : null;
+
+            // Get inventory info
+            const inventory = playerData.Inventory ? playerData.Inventory.value : null;
+            const inventoryCount = inventory ? inventory.value.length : 0;
+
+            // Get achievements/advancements
+            const achievements = playerData.achievements || playerData.advancements || null;
+
+            const avatarUrl = uuid ? `https://crafatar.com/avatars/${uuid.replace(/-/g, '')}?size=128&overlay` : null;
+            const nameHistoryUrl = uuid ? `https://namemc.com/profile/${uuid}` : null;
+
+            playerResults.innerHTML = `
+                <div class="player-profile animate-fade-in">
+                    <div class="server-badge">Server Player Data</div>
+
+                    <div class="player-header">
+                        ${avatarUrl ? `
+                        <div class="player-skin-display">
+                            <div class="skin-avatar">
+                                <img src="${avatarUrl}"
+                                     alt="Player Avatar"
+                                     class="player-avatar"
+                                     width="128"
+                                     height="128"
+                                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div style="display: none; width: 128px; height: 128px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.75rem;">
+                                    No Avatar
+                                </div>
+                                <p style="color: var(--text-muted); font-size: 0.75rem; margin-top: 0.5rem;">Avatar</p>
+                            </div>
+                        </div>
+                        ` : ''}
+                        <div class="player-info">
+                            <h2 class="player-name">${username}</h2>
+                            ${uuid ? `<div class="uuid-info">UUID: ${uuid}</div>` : `<div class="uuid-info">File: ${filename}.dat</div>`}
+                            <p style="color: var(--text-secondary); margin-top: 1rem;">
+                                Game Mode: <strong style="color: var(--green-400);">${stats.gamemode}</strong>
+                            </p>
+                            <p style="color: var(--text-secondary);">
+                                Dimension: <strong style="color: var(--green-400);">${stats.dimension}</strong>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="player-stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">${stats.health}/20</div>
+                            <div class="stat-label">Health</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${stats.food}/20</div>
+                            <div class="stat-label">Food Level</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${stats.level}</div>
+                            <div class="stat-label">Experience Level</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${stats.experience}</div>
+                            <div class="stat-label">Total XP</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${stats.score}</div>
+                            <div class="stat-label">Score</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">${inventoryCount}/36</div>
+                            <div class="stat-label">Inventory Slots</div>
+                        </div>
+                        ${position ? `
+                        <div class="stat-card" style="grid-column: span 2;">
+                            <div class="stat-value">${position.x}, ${position.y}, ${position.z}</div>
+                            <div class="stat-label">Current Position</div>
+                        </div>
+                        ` : ''}
+                    </div>
+
+                    <div style="margin-top: 2rem; text-align: center;">
+                        <h3 style="color: var(--green-400); margin-bottom: 1rem;">Server Statistics</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                            This data was parsed from the server's player data file and shows the current in-game state.
+                        </p>
+                        ${nameHistoryUrl ? `
+                        <a href="${nameHistoryUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                            View on NameMC
+                        </a>
+                        ` : ''}
+                    </div>
+                </div>
+            `;
+
+            playerResults.style.display = 'block';
+        }
+
+        function getGameMode(mode) {
+            const modes = ['Survival', 'Creative', 'Adventure', 'Spectator'];
+            return modes[mode] || 'Unknown';
+        }
+
+        function getDimension(dim) {
+            const dimensions = {
+                0: 'Overworld',
+                '-1': 'Nether',
+                '1': 'End'
+            };
+            return dimensions[dim.toString()] || `Dimension ${dim}`;
+        }
+
+        function formatUUID(uuid) {
+            return uuid.replace(/(.{8})(.{4})(.{4})(.{4})(.{12})/, '$1-$2-$3-$4-$5');
+        }
+
+        function showError(message) {
+            hideAllResults();
+            errorMessage.innerHTML = `
+                <div class="error-message animate-fade-in">
+                    ${message}
+                </div>
+            `;
+            errorMessage.style.display = 'block';
+        }
+
+        function hideAllResults() {
+            loadingIndicator.style.display = 'none';
+            errorMessage.style.display = 'none';
+            playerResults.style.display = 'none';
+        }
+
+        usernameInput.addEventListener('input', function(e) {
+            hideAllResults();
+        });
+    </script>
+</body>
+</html>
