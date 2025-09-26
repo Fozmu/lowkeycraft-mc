@@ -6,7 +6,6 @@
     <title>Player Stats - Lowkeycraft</title>
     <link rel="icon" href="logo.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/prismarine-nbt@2.5.0/prismarine-nbt.min.js"></script>
 
     <meta name="og:card" content="summary_large_image">
     <meta name="og:title" content="Player Stats - Lowkeycraft">
@@ -55,30 +54,12 @@
                 <div class="feature-card" style="max-width: 600px; margin: 0 auto 2rem;">
                     <h2 style="color: var(--green-400); margin-bottom: 1.5rem; text-align: center;">Player Statistics</h2>
 
-                    <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem;">
-                        <button type="button" id="usernameTab" class="btn btn-secondary" style="flex: 1; background: var(--green-500); color: #000;">Username Search</button>
-                        <button type="button" id="fileTab" class="btn btn-secondary" style="flex: 1;">Upload .dat File</button>
+                    <div style="margin-bottom: 1.5rem;">
+                        <label for="username" style="display: block; color: var(--text-primary); margin-bottom: 0.5rem; font-weight: 500; font-size: 0.875rem;">Minecraft Username</label>
+                        <input type="text" id="username" name="username" placeholder="Enter Minecraft username..." maxlength="16" required style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: 0.5rem; background: rgba(15, 23, 42, 0.8); color: var(--text-primary); font-size: 0.875rem; transition: all 0.2s ease; box-sizing: border-box;">
                     </div>
-
-                    <div id="usernameSearch">
-                        <div style="margin-bottom: 1.5rem;">
-                            <label for="username" style="display: block; color: var(--text-primary); margin-bottom: 0.5rem; font-weight: 500; font-size: 0.875rem;">Minecraft Username</label>
-                            <input type="text" id="username" name="username" placeholder="Enter Minecraft username..." maxlength="16" required style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: 0.5rem; background: rgba(15, 23, 42, 0.8); color: var(--text-primary); font-size: 0.875rem; transition: all 0.2s ease; box-sizing: border-box;">
-                        </div>
-                        <div style="text-align: center;">
-                            <button type="button" id="searchBtn" class="btn btn-primary" style="width: 200px;">Search Player</button>
-                        </div>
-                    </div>
-
-                    <div id="fileUpload" style="display: none;">
-                        <div style="margin-bottom: 1.5rem;">
-                            <label for="datFile" style="display: block; color: var(--text-primary); margin-bottom: 0.5rem; font-weight: 500; font-size: 0.875rem;">Upload Player .dat File</label>
-                            <input type="file" id="datFile" accept=".dat" style="width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: 0.5rem; background: rgba(15, 23, 42, 0.8); color: var(--text-primary); font-size: 0.875rem; transition: all 0.2s ease; box-sizing: border-box;">
-                            <p style="color: var(--text-muted); font-size: 0.75rem; margin-top: 0.5rem;">Upload a player .dat file from your server's playerdata folder</p>
-                        </div>
-                        <div style="text-align: center;">
-                            <button type="button" id="parseBtn" class="btn btn-primary" style="width: 200px;">Parse File</button>
-                        </div>
+                    <div style="text-align: center;">
+                        <button type="button" id="searchBtn" class="btn btn-primary" style="width: 200px;">Search Player</button>
                     </div>
                 </div>
 
@@ -110,53 +91,11 @@
 
     <script>
         const searchBtn = document.getElementById('searchBtn');
-        const parseBtn = document.getElementById('parseBtn');
-        const usernameTab = document.getElementById('usernameTab');
-        const fileTab = document.getElementById('fileTab');
-        const usernameSearch = document.getElementById('usernameSearch');
-        const fileUpload = document.getElementById('fileUpload');
         const usernameInput = document.getElementById('username');
-        const datFileInput = document.getElementById('datFile');
         const loadingIndicator = document.getElementById('loadingIndicator');
         const errorMessage = document.getElementById('errorMessage');
         const playerResults = document.getElementById('playerResults');
 
-        // Tab switching functionality
-        usernameTab.addEventListener('click', () => {
-            usernameTab.style.background = 'var(--green-500)';
-            usernameTab.style.color = '#000';
-            fileTab.style.background = 'var(--surface)';
-            fileTab.style.color = 'var(--text-primary)';
-            usernameSearch.style.display = 'block';
-            fileUpload.style.display = 'none';
-            hideAllResults();
-        });
-
-        fileTab.addEventListener('click', () => {
-            fileTab.style.background = 'var(--green-500)';
-            fileTab.style.color = '#000';
-            usernameTab.style.background = 'var(--surface)';
-            usernameTab.style.color = 'var(--text-primary)';
-            usernameSearch.style.display = 'none';
-            fileUpload.style.display = 'block';
-            hideAllResults();
-        });
-
-        // Parse .dat file button
-        parseBtn.addEventListener('click', async () => {
-            const file = datFileInput.files[0];
-            if (!file) {
-                showError('Please select a .dat file to upload.');
-                return;
-            }
-
-            if (!file.name.endsWith('.dat')) {
-                showError('Please select a valid .dat file.');
-                return;
-            }
-
-            await parseDatFile(file);
-        });
 
         searchBtn.addEventListener('click', async () => {
             const username = usernameInput.value.trim();
@@ -179,41 +118,6 @@
             await searchPlayer(username);
         });
 
-        async function parseDatFile(file) {
-            hideAllResults();
-            loadingIndicator.style.display = 'block';
-
-            try {
-                const arrayBuffer = await file.arrayBuffer();
-                const buffer = new Uint8Array(arrayBuffer);
-
-                // Parse NBT data using prismarine-nbt
-                const { parsed } = await window.nbt.parse(buffer);
-
-                if (!parsed || !parsed.value) {
-                    throw new Error('Invalid NBT data format');
-                }
-
-                const playerData = parsed.value;
-                const filename = file.name.replace('.dat', '');
-
-                // Try to get UUID from filename if it looks like one
-                let uuid = '';
-                if (filename.length === 36 && filename.includes('-')) {
-                    uuid = filename;
-                } else if (filename.length === 32) {
-                    uuid = formatUUID(filename);
-                }
-
-                await displayServerPlayerData(playerData, uuid, filename);
-
-            } catch (error) {
-                console.error('Error parsing .dat file:', error);
-                showError('Failed to parse .dat file. Please ensure it\'s a valid Minecraft player data file.');
-            } finally {
-                loadingIndicator.style.display = 'none';
-            }
-        }
 
         usernameInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
@@ -304,7 +208,27 @@
 
         async function getServerPlayerStats(username) {
             try {
-                // Use a proxy endpoint to avoid CORS issues with HTTP requests
+                console.log('Attempting to fetch server stats for:', username);
+
+                // Try direct connection first (for local testing)
+                try {
+                    const directResponse = await fetch(`http://mc.lowkeycraft.net:8080/player/${username}`, {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        }
+                    });
+
+                    if (directResponse.ok) {
+                        const data = await directResponse.json();
+                        console.log('Server stats received:', data);
+                        return data;
+                    }
+                } catch (directError) {
+                    console.log('Direct connection failed, trying proxy...', directError.message);
+                }
+
+                // Fallback to proxy endpoint
                 const response = await fetch('/.netlify/functions/axon-proxy', {
                     method: 'POST',
                     headers: {
@@ -317,11 +241,13 @@
                 });
 
                 if (!response.ok) {
-                    console.warn('Server stats not available for player:', username);
+                    console.warn('Proxy response not OK:', response.status, response.statusText);
                     return null;
                 }
 
                 const data = await response.json();
+                console.log('Proxy response:', data);
+
                 if (data.success && data.data) {
                     return data.data;
                 }
@@ -473,134 +399,6 @@
             playerResults.style.display = 'block';
         }
 
-        async function displayServerPlayerData(playerData, uuid, filename) {
-            const username = playerData.playerGameType ? 'Server Player' : filename;
-
-            // Extract key player statistics
-            const stats = {
-                health: playerData.Health ? Math.round(playerData.Health.value) : 'Unknown',
-                food: playerData.foodLevel ? playerData.foodLevel.value : 'Unknown',
-                experience: playerData.XpTotal ? playerData.XpTotal.value : 'Unknown',
-                level: playerData.XpLevel ? playerData.XpLevel.value : 'Unknown',
-                gamemode: getGameMode(playerData.playerGameType ? playerData.playerGameType.value : 0),
-                dimension: getDimension(playerData.Dimension ? playerData.Dimension.value : 0),
-                score: playerData.Score ? playerData.Score.value : 'Unknown'
-            };
-
-            // Get position
-            const pos = playerData.Pos ? playerData.Pos.value : null;
-            const position = pos ? {
-                x: Math.round(pos.value[0].value),
-                y: Math.round(pos.value[1].value),
-                z: Math.round(pos.value[2].value)
-            } : null;
-
-            // Get inventory info
-            const inventory = playerData.Inventory ? playerData.Inventory.value : null;
-            const inventoryCount = inventory ? inventory.value.length : 0;
-
-            // Get achievements/advancements
-            const achievements = playerData.achievements || playerData.advancements || null;
-
-            const avatarUrl = uuid ? `https://crafatar.com/avatars/${uuid.replace(/-/g, '')}?size=128&overlay` : null;
-            const nameHistoryUrl = uuid ? `https://namemc.com/profile/${uuid}` : null;
-
-            playerResults.innerHTML = `
-                <div class="player-profile animate-fade-in">
-                    <div class="server-badge">Server Player Data</div>
-
-                    <div class="player-header">
-                        ${avatarUrl ? `
-                        <div class="player-skin-display">
-                            <div class="skin-avatar">
-                                <img src="${avatarUrl}"
-                                     alt="Player Avatar"
-                                     class="player-avatar"
-                                     width="128"
-                                     height="128"
-                                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                <div style="display: none; width: 128px; height: 128px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.75rem;">
-                                    No Avatar
-                                </div>
-                                <p style="color: var(--text-muted); font-size: 0.75rem; margin-top: 0.5rem;">Avatar</p>
-                            </div>
-                        </div>
-                        ` : ''}
-                        <div class="player-info">
-                            <h2 class="player-name">${username}</h2>
-                            ${uuid ? `<div class="uuid-info">UUID: ${uuid}</div>` : `<div class="uuid-info">File: ${filename}.dat</div>`}
-                            <p style="color: var(--text-secondary); margin-top: 1rem;">
-                                Game Mode: <strong style="color: var(--green-400);">${stats.gamemode}</strong>
-                            </p>
-                            <p style="color: var(--text-secondary);">
-                                Dimension: <strong style="color: var(--green-400);">${stats.dimension}</strong>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="player-stats-grid">
-                        <div class="stat-card">
-                            <div class="stat-value">${stats.health}/20</div>
-                            <div class="stat-label">Health</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value">${stats.food}/20</div>
-                            <div class="stat-label">Food Level</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value">${stats.level}</div>
-                            <div class="stat-label">Experience Level</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value">${stats.experience}</div>
-                            <div class="stat-label">Total XP</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value">${stats.score}</div>
-                            <div class="stat-label">Score</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-value">${inventoryCount}/36</div>
-                            <div class="stat-label">Inventory Slots</div>
-                        </div>
-                        ${position ? `
-                        <div class="stat-card" style="grid-column: span 2;">
-                            <div class="stat-value">${position.x}, ${position.y}, ${position.z}</div>
-                            <div class="stat-label">Current Position</div>
-                        </div>
-                        ` : ''}
-                    </div>
-
-                    <div style="margin-top: 2rem; text-align: center;">
-                        <h3 style="color: var(--green-400); margin-bottom: 1rem;">Server Statistics</h3>
-                        <p style="color: var(--text-secondary); margin-bottom: 1rem;">
-                            This data was parsed from the server's player data file and shows the current in-game state.
-                        </p>
-                        ${nameHistoryUrl ? `
-                        <a href="${nameHistoryUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-                            View on NameMC
-                        </a>
-                        ` : ''}
-                    </div>
-                </div>
-            `;
-
-            playerResults.style.display = 'block';
-        }
-
-        function getGameMode(mode) {
-            const modes = ['Survival', 'Creative', 'Adventure', 'Spectator'];
-            return modes[mode] || 'Unknown';
-        }
-
-        function getDimension(dim) {
-            const dimensions = {
-                0: 'Overworld',
-                '-1': 'Nether',
-                '1': 'End'
-            };
-            return dimensions[dim.toString()] || `Dimension ${dim}`;
-        }
 
         function formatUUID(uuid) {
             return uuid.replace(/(.{8})(.{4})(.{4})(.{4})(.{12})/, '$1-$2-$3-$4-$5');
