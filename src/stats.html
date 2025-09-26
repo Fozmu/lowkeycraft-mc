@@ -238,7 +238,11 @@
             try {
                 const uuid = await getPlayerUUID(username);
                 const profile = await getPlayerProfile(uuid, username);
-                displayPlayerProfile(profile);
+
+                // Try to get server stats from your plugin
+                const serverStats = await getServerPlayerStats(username);
+
+                displayPlayerProfile(profile, serverStats);
             } catch (error) {
                 console.error('Error fetching player data:', error);
                 showError(error.message || 'Failed to fetch player data. Please try again.');
@@ -298,11 +302,101 @@
             };
         }
 
-        function displayPlayerProfile(profile) {
+        async function getServerPlayerStats(username) {
+            try {
+                // Use a proxy endpoint to avoid CORS issues with HTTP requests
+                const response = await fetch('/.netlify/functions/axon-proxy', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username: username,
+                        endpoint: `http://mc.lowkeycraft.net:8080/player/${username}`
+                    })
+                });
+
+                if (!response.ok) {
+                    console.warn('Server stats not available for player:', username);
+                    return null;
+                }
+
+                const data = await response.json();
+                if (data.success && data.data) {
+                    return data.data;
+                }
+                return null;
+            } catch (error) {
+                console.warn('Failed to fetch server stats:', error);
+                return null;
+            }
+        }
+
+        function displayPlayerProfile(profile, serverStats = null) {
             const formattedUUID = formatUUID(profile.uuid);
             const avatarUrl = `https://crafatar.com/avatars/${profile.uuid}?size=128&overlay`;
             const skinUrl = `https://crafatar.com/renders/body/${profile.uuid}?size=200&overlay`;
             const nameHistoryUrl = `https://namemc.com/profile/${profile.uuid}`;
+
+            // Build server stats section if available
+            let serverStatsSection = '';
+            if (serverStats) {
+                serverStatsSection = `
+                    <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border);">
+                        <h3 style="color: var(--green-400); margin-bottom: 1.5rem; text-align: center;">Lowkeycraft Server Stats</h3>
+                        <div class="player-stats-grid">
+                            ${serverStats.playtime ? `
+                            <div class="stat-card">
+                                <div class="stat-value">${serverStats.playtime}</div>
+                                <div class="stat-label">Playtime</div>
+                            </div>
+                            ` : ''}
+                            ${serverStats.firstJoin ? `
+                            <div class="stat-card">
+                                <div class="stat-value">${serverStats.firstJoin}</div>
+                                <div class="stat-label">First Join</div>
+                            </div>
+                            ` : ''}
+                            ${serverStats.lastSeen ? `
+                            <div class="stat-card">
+                                <div class="stat-value">${serverStats.lastSeen}</div>
+                                <div class="stat-label">Last Seen</div>
+                            </div>
+                            ` : ''}
+                            ${serverStats.isOnline !== undefined ? `
+                            <div class="stat-card">
+                                <div class="stat-value">${serverStats.isOnline ? '🟢 Online' : '🔴 Offline'}</div>
+                                <div class="stat-label">Status</div>
+                            </div>
+                            ` : ''}
+                            ${serverStats.blocksPlaced ? `
+                            <div class="stat-card">
+                                <div class="stat-value">${serverStats.blocksPlaced.toLocaleString()}</div>
+                                <div class="stat-label">Blocks Placed</div>
+                            </div>
+                            ` : ''}
+                            ${serverStats.blocksBreaken ? `
+                            <div class="stat-card">
+                                <div class="stat-value">${serverStats.blocksBreaken.toLocaleString()}</div>
+                                <div class="stat-label">Blocks Broken</div>
+                            </div>
+                            ` : ''}
+                            ${serverStats.deaths !== undefined ? `
+                            <div class="stat-card">
+                                <div class="stat-value">${serverStats.deaths}</div>
+                                <div class="stat-label">Deaths</div>
+                            </div>
+                            ` : ''}
+                            ${serverStats.level !== undefined ? `
+                            <div class="stat-card">
+                                <div class="stat-value">${serverStats.level}</div>
+                                <div class="stat-label">Level</div>
+                            </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                `;
+            }
 
             playerResults.innerHTML = `
                 <div class="player-profile animate-fade-in">
@@ -344,6 +438,11 @@
                             <p style="color: var(--text-secondary);">
                                 Profile Status: <strong style="color: var(--green-400);">Valid</strong>
                             </p>
+                            ${serverStats ? `
+                            <p style="color: var(--text-secondary);">
+                                Server Data: <strong style="color: var(--green-400);">Available</strong>
+                            </p>
+                            ` : ''}
                         </div>
                     </div>
 
@@ -365,6 +464,8 @@
                             <div class="stat-label">Profile Status</div>
                         </div>
                     </div>
+
+                    ${serverStatsSection}
 
                 </div>
             `;

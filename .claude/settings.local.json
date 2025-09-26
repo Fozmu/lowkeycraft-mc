@@ -20,7 +20,8 @@
       "Bash(start http://localhost:3003/staff.html)",
       "WebFetch(domain:minecraftuuid.com)",
       "WebFetch(domain:pl.namemc.com)",
-      "WebFetch(domain:namemc.com)"
+      "WebFetch(domain:namemc.com)",
+      "Bash(start http://localhost:3003/stats.html)"
     ],
     "deny": [],
     "ask": []
