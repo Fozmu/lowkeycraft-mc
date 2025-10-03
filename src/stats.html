@@ -295,16 +295,16 @@
                                 <div class="stat-label">Status</div>
                             </div>
                             ` : ''}
-                            ${serverStats.blocksPlaced ? `
+                            ${serverStats.playerKills !== undefined ? `
                             <div class="stat-card">
-                                <div class="stat-value">${serverStats.blocksPlaced.toLocaleString()}</div>
-                                <div class="stat-label">Blocks Placed</div>
+                                <div class="stat-value">${serverStats.playerKills}</div>
+                                <div class="stat-label">Player Kills</div>
                             </div>
                             ` : ''}
-                            ${serverStats.blocksBreaken ? `
+                            ${serverStats.mobKills !== undefined ? `
                             <div class="stat-card">
-                                <div class="stat-value">${serverStats.blocksBreaken.toLocaleString()}</div>
-                                <div class="stat-label">Blocks Broken</div>
+                                <div class="stat-value">${serverStats.mobKills.toLocaleString()}</div>
+                                <div class="stat-label">Mob Kills</div>
                             </div>
                             ` : ''}
                             ${serverStats.deaths !== undefined ? `
@@ -313,10 +313,34 @@
                                 <div class="stat-label">Deaths</div>
                             </div>
                             ` : ''}
+                            ${serverStats.distanceWalked !== undefined ? `
+                            <div class="stat-card">
+                                <div class="stat-value">${(serverStats.distanceWalked / 1000).toFixed(1)}km</div>
+                                <div class="stat-label">Distance Walked</div>
+                            </div>
+                            ` : ''}
+                            ${serverStats.jumps !== undefined ? `
+                            <div class="stat-card">
+                                <div class="stat-value">${serverStats.jumps.toLocaleString()}</div>
+                                <div class="stat-label">Jumps</div>
+                            </div>
+                            ` : ''}
                             ${serverStats.level !== undefined ? `
                             <div class="stat-card">
                                 <div class="stat-value">${serverStats.level}</div>
                                 <div class="stat-label">Level</div>
+                            </div>
+                            ` : ''}
+                            ${serverStats.damageDealt !== undefined ? `
+                            <div class="stat-card">
+                                <div class="stat-value">${serverStats.damageDealt.toLocaleString()} ❤</div>
+                                <div class="stat-label">Damage Dealt</div>
+                            </div>
+                            ` : ''}
+                            ${serverStats.damageTaken !== undefined ? `
+                            <div class="stat-card">
+                                <div class="stat-value">${serverStats.damageTaken.toLocaleString()} ❤</div>
+                                <div class="stat-label">Damage Taken</div>
                             </div>
                             ` : ''}
                         </div>

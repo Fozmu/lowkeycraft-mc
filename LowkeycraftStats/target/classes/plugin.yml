@@ -1,0 +1,19 @@
+name: LowkeycraftStats
+version: 1.0.0
+main: net.lowkeycraft.stats.LowkeycraftStatsPlugin
+api-version: 1.20
+author: Lowkeycraft
+description: Real-time player statistics tracking with REST API integration
+website: https://lowkeycraft.net
+depend: [PlayerStats]
+
+commands:
+  statsapi:
+    description: Manage the statistics API server
+    usage: /statsapi <start|stop|status>
+    permission: lowkeycraftstats.admin
+
+permissions:
+  lowkeycraftstats.admin:
+    description: Allows access to stats API admin commands
+    default: op
