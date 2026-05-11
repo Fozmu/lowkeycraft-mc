@@ -590,6 +590,26 @@ nav a.active {
 .mode-card.blue:hover   { border-color: rgba(103,232,249,0.3); box-shadow: 0 8px 40px rgba(6,182,212,0.12); }
 .mode-card.orange:hover { border-color: rgba(249,115,22,0.3);  box-shadow: 0 8px 40px rgba(249,115,22,0.12); }
 
+.mode-card-img {
+    background-size: cover;
+    background-position: center;
+}
+
+.mode-card-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(5,5,10,0.92) 30%, rgba(5,5,10,0.55) 65%, rgba(5,5,10,0.25) 100%);
+    z-index: 0;
+    opacity: 1 !important;
+    border-radius: inherit;
+}
+
+.mode-card-img > * {
+    position: relative;
+    z-index: 1;
+}
+
 .mode-card.featured {
     grid-row: span 2;
     display: flex;
