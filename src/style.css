@@ -253,20 +253,24 @@ nav a.active {
     text-align: center;
     padding: 8rem 0 6rem;
     overflow: hidden;
-    background: var(--dark0);
+    background:
+        url('minecraftbackground.png') center center / cover no-repeat;
 }
 
-/* Radial glow */
+/* Dark transparent overlay */
 .hero-section::before {
     content: '';
     position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 900px;
-    height: 600px;
-    background: radial-gradient(ellipse, rgba(34,197,94,0.08) 0%, transparent 70%);
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(5,5,10,0.72) 0%,
+        rgba(5,5,10,0.60) 50%,
+        rgba(5,5,10,0.88) 85%,
+        rgba(5,5,10,1.00) 100%
+    );
     pointer-events: none;
+    z-index: 0;
 }
 
 /* Terrain silhouette at bottom */
