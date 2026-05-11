@@ -11,166 +11,364 @@
     <meta name="og:title" content="Lowkeycraft - Official Minecraft Server">
     <meta name="og:description" content="Join Lowkeycraft - The ultimate Minecraft server experience. Build, explore, and create your legacy with our amazing community!">
     <meta name="og:url" content="https://lowkeycraft.net/logo.png">
-    <meta content="#2ae88a" data-react-helmet="true" name="theme-color">
+    <meta content="#22C55E" data-react-helmet="true" name="theme-color">
     <meta name="google-site-verification" content="16MaYtHjuvQX2w8Hocvgembth-ta3El1KVCbawKO13E" />
     <meta name="google-adsense-account" content="ca-pub-6389097554596560">
-    
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6389097554596560"
-     crossorigin="anonymous"></script>
-
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6389097554596560"
+         crossorigin="anonymous"></script>
 </head>
-
 <body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo-section">
+
+<!-- ──────────────── HEADER ──────────────── -->
+<header id="header">
+    <div class="container">
+        <div class="header-content">
+            <a href="index.html" class="logo-section" style="text-decoration:none">
+                <img src="./logo.png" alt="Lowkeycraft Logo">
+                <span class="site-title">LOWKEYCRAFT</span>
+            </a>
+            <nav>
+                <a href="index.html" class="active">Home</a>
+                <a href="discord.html">Discord</a>
+                <a href="staff.html">Staff</a>
+                <a href="stats.html">Stats</a>
+                <a href="tos.html">Terms</a>
+                <a href="policy.html">Privacy</a>
+            </nav>
+            <div class="header-cta">
+                <a href="discord.html" class="btn btn-secondary btn-sm">Discord</a>
+                <a href="#connect" class="btn btn-primary btn-sm">Play Now</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+
+<!-- ──────────────── HERO ──────────────── -->
+<section class="hero-section" id="home">
+    <div class="pixel-particles" id="particles"></div>
+
+    <div class="hero-inner">
+        <div class="hero-status">
+            <span class="status-dot"></span>
+            SERVER ONLINE &nbsp;·&nbsp; 200+ PLAYERS
+        </div>
+
+        <h1 class="hero-title">
+            LOWKEY<span>CRAFT</span>
+        </h1>
+        <p class="hero-subtitle">The Ultimate Minecraft Experience</p>
+
+        <div class="hero-cta">
+            <a href="#connect" class="btn btn-primary">&#9654;&nbsp; Play Now</a>
+            <a href="discord.html" class="btn btn-discord">&#9670;&nbsp; Join Discord</a>
+            <a href="#gamemodes" class="btn btn-secondary">Explore Modes</a>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+            <div class="hero-server-pill" id="heroPill" title="Click to copy server IP">
+                <div>
+                    <div class="pill-label">SERVER ADDRESS</div>
+                    <div class="pill-ip">mc.lowkeycraft.net</div>
+                </div>
+                <span class="pill-action">[ COPY ]</span>
+            </div>
+        </div>
+
+        <div class="hero-version-row">
+            <span class="version-badge green">Java &amp; Bedrock</span>
+            <span class="version-badge blue">v1.21.8 Latest</span>
+            <span class="version-badge gold">Creative / Survival</span>
+        </div>
+    </div>
+
+    <div class="hero-terrain"></div>
+</section>
+
+<!-- ──────────────── STATS ──────────────── -->
+<div class="stats-bar">
+    <div class="container">
+        <div class="stats-inner">
+            <div class="stat-item">
+                <span class="stat-number">250+</span>
+                <span class="stat-label">Active Players</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">99.9%</span>
+                <span class="stat-label">Uptime</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">Staff Support</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">10+</span>
+                <span class="stat-label">Game Modes</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ──────────────── GAME MODES ──────────────── -->
+<section class="section section-dark" id="gamemodes">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">&#9670; What We Offer</span>
+            <h2 class="section-title">Choose Your Adventure</h2>
+            <p class="section-subtitle">Four worlds. One community. Endless possibilities.</p>
+        </div>
+
+        <div class="modes-grid">
+            <div class="mode-card green featured">
+                <span class="mode-icon">&#127981;</span>
+                <div>
+                    <div class="mode-label">Most Popular</div>
+                    <h3 class="mode-title">Creative Mode</h3>
+                    <p class="mode-desc">Unlimited resources. Unlimited imagination. Build anything you can dream in our massive creative worlds with plot protection and WorldEdit support.</p>
+                </div>
+            </div>
+
+            <div class="mode-card gold">
+                <span class="mode-icon">&#9876;</span>
+                <div class="mode-label">Classic</div>
+                <h3 class="mode-title">Survival</h3>
+                <p class="mode-desc">Pure Minecraft survival with an incredible community. Economy, land claims, and seasonal resets.</p>
+            </div>
+
+            <div class="mode-card blue">
+                <span class="mode-icon">&#127942;</span>
+                <div class="mode-label">Competitive</div>
+                <h3 class="mode-title">Mini-Games</h3>
+                <p class="mode-desc">Spleef, BedWars, SkyWars, parkour and more. Fast-paced action against real players.</p>
+            </div>
+
+            <div class="mode-card orange">
+                <span class="mode-icon">&#127880;</span>
+                <div class="mode-label">Seasonal</div>
+                <h3 class="mode-title">Events</h3>
+                <p class="mode-desc">Community builds, treasure hunts, and challenges. Real prizes for winners.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ──────────────── CONNECT ──────────────── -->
+<section class="connect-section" id="connect">
+    <div class="container">
+        <div class="connect-label">&#9654; Connect Now</div>
+        <div class="connect-ip" id="connectIp" title="Click to copy">mc.lowkeycraft.net</div>
+        <span class="connect-hint">click address to copy</span>
+        <div class="connect-meta">
+            <span class="version-badge green">Java 1.21.8</span>
+            <span class="version-badge blue">Bedrock Supported</span>
+            <span class="version-badge gold">No Whitelist</span>
+        </div>
+    </div>
+</section>
+
+<!-- ──────────────── WHY US ──────────────── -->
+<section class="section section-darker" id="features">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">&#9670; Why Lowkeycraft</span>
+            <h2 class="section-title">Built Different</h2>
+            <p class="section-subtitle">Everything a great Minecraft server should be.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="card-icon">&#127968;</span>
+                <h3>Creative Building</h3>
+                <p>Unlimited resources and expansive build areas. Monuments, cities, anything you imagine — no limits.</p>
+            </div>
+            <div class="feature-card">
+                <span class="card-icon">&#128737;</span>
+                <h3>Safe Community</h3>
+                <p>Dedicated moderation, anti-grief protection, and zero tolerance for harassment. Safe for all ages.</p>
+            </div>
+            <div class="feature-card">
+                <span class="card-icon">&#9889;</span>
+                <h3>High Performance</h3>
+                <p>Premium hardware. 99.9% uptime. Low ping globally. Lag-free gameplay is non-negotiable.</p>
+            </div>
+            <div class="feature-card">
+                <span class="card-icon">&#127891;</span>
+                <h3>Regular Events</h3>
+                <p>Build competitions, treasure hunts, and seasonal celebrations with real in-game prizes.</p>
+            </div>
+            <div class="feature-card">
+                <span class="card-icon">&#127759;</span>
+                <h3>Multiple Worlds</h3>
+                <p>Survival, creative, mini-games, and event realms. New worlds regularly to keep things fresh.</p>
+            </div>
+            <div class="feature-card">
+                <span class="card-icon">&#128172;</span>
+                <h3>Active Discord</h3>
+                <p>5000+ members. Get support, share builds, find friends. Staff active around the clock.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ──────────────── HOW TO JOIN ──────────────── -->
+<section class="section section-dark" id="join">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label">&#9670; Getting Started</span>
+            <h2 class="section-title">Join in 3 Steps</h2>
+            <p class="section-subtitle">No downloads. No sign-up. Just play.</p>
+        </div>
+
+        <div class="steps-row">
+            <div class="step-card">
+                <span class="step-number">01</span>
+                <h3>Launch Minecraft</h3>
+                <p>Open Minecraft Java or Bedrock Edition version 1.21.8 or compatible.</p>
+            </div>
+            <div class="step-card">
+                <span class="step-number">02</span>
+                <h3>Add Our Server</h3>
+                <p>Go to Multiplayer → Add Server → Enter <strong style="color:var(--green3)">mc.lowkeycraft.net</strong> as the address.</p>
+            </div>
+            <div class="step-card">
+                <span class="step-number">03</span>
+                <h3>Start Playing</h3>
+                <p>Connect and you're in. No whitelist, no application. Pick a mode and build your legacy.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ──────────────── DISCORD CTA ──────────────── -->
+<section class="discord-section">
+    <div class="container">
+        <span class="discord-icon">&#128172;</span>
+        <div class="section-header" style="margin-bottom:2rem">
+            <h2 class="section-title">Join Our Community</h2>
+            <p class="section-subtitle">Connect with 5000+ players on Discord. Get updates, find friends, and get support from our staff.</p>
+        </div>
+        <div class="discord-cta">
+            <a href="discord.html" class="btn btn-discord">&#9670;&nbsp; Open Discord</a>
+            <a href="staff.html" class="btn btn-secondary">Meet the Staff</a>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- ──────────────── FOOTER ──────────────── -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo-section" style="text-decoration:none; margin-bottom:1.25rem; display:flex;">
                     <img src="./logo.png" alt="Lowkeycraft Logo">
-                    <h1 class="site-title">LOWKEYCRAFT</h1>
+                    <span class="site-title">LOWKEYCRAFT</span>
+                </a>
+                <p class="footer-tagline">The ultimate Minecraft server experience. Build, explore, and create your legacy with our amazing community.</p>
+                <div style="display:flex; align-items:center; gap:0.6rem; color:var(--text3); font-size:0.85rem;">
+                    <img src="./foz.png" alt="Fozmu Studios" width="18" height="18" style="image-rendering:pixelated; opacity:0.6;">
+                    Powered by Fozmu Studios
                 </div>
-                <nav>
-                    <a href="index.html" class="active">Home</a>
-                    <a href="discord.html">Discord</a>
-                    <a href="staff.html">Staff</a>
-                    <a href="stats.html">Stats</a>
-                    <a href="tos.html">Terms</a>
-                    <a href="policy.html">Privacy</a>
-                </nav>
+            </div>
+
+            <div class="footer-col">
+                <h4>Navigate</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="staff.html">Staff</a></li>
+                    <li><a href="stats.html">Player Stats</a></li>
+                    <li><a href="discord.html">Discord</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="tos.html">Terms of Service</a></li>
+                    <li><a href="policy.html">Privacy Policy</a></li>
+                    <li><a href="tos.html">Server Rules</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="mailto:support@fozmu.studio">Email Support</a></li>
+                    <li><a href="discord.html">Discord Help</a></li>
+                    <li><a href="#connect">Server IP</a></li>
+                </ul>
             </div>
         </div>
-    </header>
 
-    <main>
-        <section class="hero-section" id="home">
-            <div class="container">
-                <h1 class="hero-title">Build Your Legacy</h1>
-                <p class="hero-subtitle">The Ultimate Minecraft Server Experience</p>
-                <p class="hero-description">Welcome to Lowkeycraft! Join our thriving community where creativity knows no bounds. Build magnificent structures, explore endless worlds, and create lasting friendships in our safe and welcoming environment.</p>
-                <div class="cta-buttons">
-                    <a href="#join" class="btn btn-primary">Join Server</a>
-                    <a href="discord.html" class="btn btn-secondary">Join Discord</a>
-                </div>
-                <div style="margin-top: 2rem; display: flex; align-items: center; justify-content: center; gap: 1rem;">
-                    <img src="./foz.png" alt="Fozmu Studios Logo" width="32">
-                    <span style="color: #cccccc;">Powered by Fozmu Studios</span>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="features">
-            <div class="container">
-                <h2 class="section-title">Why Choose Lowkeycraft?</h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <h3>Creative Building</h3>
-                        <p>Unleash your creativity with unlimited resources and expansive building areas. Create monuments, cities, or anything you can imagine!</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>Safe Community</h3>
-                        <p>Our dedicated moderation team ensures a friendly, safe environment for players of all ages. Zero tolerance for griefing or harassment.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>Multiple Worlds</h3>
-                        <p>Explore diverse worlds including survival, creative, mini-games, and special event areas. There's always something new to discover!</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>High Performance</h3>
-                        <p>Experience lag-free gameplay on our premium servers with 99.9% uptime and lightning-fast response times.</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>Regular Events</h3>
-                        <p>Join exciting community events, building competitions, treasure hunts, and seasonal celebrations with amazing prizes!</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>Active Community</h3>
-                        <p>Connect with fellow builders in our Discord server, share your creations, get help, and make lasting friendships.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section stats-section">
-            <div class="container">
-                <h2 class="section-title">Join Our Growing Community</h2>
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <span class="stat-number">250+</span>
-                        <span class="stat-label">Active Players</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">99.9%</span>
-                        <span class="stat-label">Server Uptime</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">24/7</span>
-                        <span class="stat-label">Staff Support</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">10+</span>
-                        <span class="stat-label">Game Modes</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="join">
-            <div class="container">
-                <h2 class="section-title">Ready to Start Building?</h2>
-
-                <div class="server-info">
-                    <h3>Connect to Server</h3>
-                    <p>Open Minecraft and add our server:</p>
-                    <div class="server-ip">mc.lowkeycraft.net</div>
-                    <p><strong>Version:</strong> 1.21.8 (Latest Version) | <strong>Type:</strong> Creative/Survival | <strong>Players:</strong> 200+ Active</p>
-                </div>
-
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <h3>Join Discord</h3>
-                        <p>Connect with our community, get updates, and chat with other players in our Discord server.</p>
-                        <a href="discord.html" class="btn btn-primary">Join Discord</a>
-                    </div>
-                    <div class="feature-card">
-                        <h3>Read the Rules</h3>
-                        <p>Familiarize yourself with our community guidelines to ensure everyone has a great experience.</p>
-                        <a href="tos.html" class="btn btn-secondary">View Rules</a>
-                    </div>
-                </div>
-
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <h3>Quick Links</h3>
-                        <p><a href="discord.html">Discord Server</a></p>
-                        <p><a href="tos.html">Terms of Service</a></p>
-                        <p><a href="policy.html">Privacy Policy</a></p>
-                       
-                    </div>
-                    <div class="feature-card">
-                        <h3>Support</h3>
-                        <p><a href="mailto:support@fozmu.studio">Email Support</a></p>
-                        <p><a href="discord.html">Discord Help</a></p>
-                        <p>Response time: 24-48 hours</p>
-                        <p>Staff available 24/7</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-links">
-                    <a href="discord.html">Discord</a>
-                    <a href="tos.html">Terms of Service</a>
-                    <a href="policy.html">Privacy Policy</a>
-                  
-                </div>
-                <p>© 2025 Fozmu Studios • All Rights Reserved • Lowkeycraft Minecraft Server</p>
-                <p>Est. 2024 • Family-friendly server • Global community</p>
-                <p>Join our community and start building your legacy today!</p>
-            </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Fozmu Studios &bull; All Rights Reserved</p>
+            <p>Lowkeycraft &bull; Est. 2024 &bull; Not affiliated with Mojang or Microsoft</p>
         </div>
-    </footer>
+    </div>
+</footer>
+
+<script>
+// Floating pixel blocks in hero
+(function() {
+    var p = document.getElementById('particles');
+    if (!p) return;
+    var palette = [
+        { b:'#22C55E', bg:'rgba(34,197,94,0.08)' },
+        { b:'#F59E0B', bg:'rgba(245,158,11,0.08)' },
+        { b:'#06B6D4', bg:'rgba(6,182,212,0.08)' },
+        { b:'#7D7D7D', bg:'rgba(125,125,125,0.06)' },
+        { b:'#5C4033', bg:'rgba(92,64,51,0.1)' },
+    ];
+    for (var i = 0; i < 32; i++) {
+        var el = document.createElement('span');
+        el.className = 'pixel-block';
+        var c = palette[i % palette.length];
+        var sz = 6 + Math.floor(Math.random() * 14);
+        el.style.cssText = [
+            'left:'   + (Math.random() * 100) + '%',
+            'width:'  + sz + 'px',
+            'height:' + sz + 'px',
+            'border-color:' + c.b,
+            'background:'   + c.bg,
+            'animation-duration:' + (10 + Math.random() * 18) + 's',
+            'animation-delay:' + (Math.random() * 15) + 's'
+        ].join(';');
+        p.appendChild(el);
+    }
+})();
+
+// Copy IP from hero pill
+document.getElementById('heroPill').addEventListener('click', function() {
+    navigator.clipboard.writeText('mc.lowkeycraft.net').then(function() {
+        var t = document.createElement('div');
+        t.className = 'copied-toast';
+        t.textContent = 'IP COPIED!';
+        document.body.appendChild(t);
+        setTimeout(function() { t.remove(); }, 1900);
+    });
+});
+
+// Copy IP from connect section
+document.getElementById('connectIp').addEventListener('click', function() {
+    var el = this;
+    navigator.clipboard.writeText('mc.lowkeycraft.net').then(function() {
+        var orig = el.textContent;
+        el.textContent = '✓ COPIED TO CLIPBOARD';
+        el.style.color = 'var(--green3)';
+        setTimeout(function() {
+            el.textContent = orig;
+            el.style.color = '';
+        }, 1600);
+    });
+});
+
+// Header bg on scroll
+window.addEventListener('scroll', function() {
+    document.getElementById('header').style.background =
+        window.scrollY > 20 ? 'rgba(5,5,10,0.97)' : 'rgba(5,5,10,0.88)';
+}, { passive: true });
+</script>
 </body>
 </html>
